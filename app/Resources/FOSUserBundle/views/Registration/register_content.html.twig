@@ -1,0 +1,41 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+<fieldset class="form-group">
+    {{ form_widget(form.username, {'attr': {'class': 'form-control','placeholder': 'username'} }) }}
+</fieldset>
+<fieldset class="form-group">
+    {{ form_widget(form.nom, {'attr': {'class': 'form-control','placeholder': 'Votre Nom'} }) }}
+</fieldset>
+<fieldset class="form-group">
+    {{ form_widget(form.prenom, {'attr': {'class': 'form-control','placeholder': 'Votre Prénom'} }) }}
+</fieldset>
+<fieldset class="form-group">
+    {{ form_widget(form.Pays, {'attr': {'class': 'form-control','placeholder': 'Country'} }) }}
+</fieldset>
+<fieldset class="form-group">
+    {{ form_widget(form.file, {'attr': {'placeholder': 'Your Pic'} }) }}
+</fieldset>
+<fieldset class="form-group">
+    {{ form_widget(form.DatedeNaissance, {'attr': {'class': 'form-control','placeholder': 'DatedeNaissance'} }) }}
+</fieldset>
+<fieldset class="form-group">
+    {{ form_widget(form.NumeroTel, {'attr': {'class': 'form-control','placeholder': 'Number Phone'} }) }}
+</fieldset>
+<fieldset class="form-group">
+    {{ form_widget(form.region, {'attr': {'class': 'form-control','placeholder': 'Region'} }) }}
+</fieldset>
+<fieldset class="form-group">
+    {{ form_widget(form.email, {'attr': {'class': 'form-control','placeholder': 'Your Email'} }) }}
+</fieldset>
+<fieldset class="form-group">
+    {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control','placeholder': 'Password'} }) }}
+</fieldset>
+<fieldset class="form-group">
+    {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control','placeholder': 'Repeat Password'} }) }}
+</fieldset>
+    <div>
+        <input type="submit" class="btn-secondary" value="{{ 'registration.submit'|trans }}" />
+    </div>
+{{ form_end(form) }}

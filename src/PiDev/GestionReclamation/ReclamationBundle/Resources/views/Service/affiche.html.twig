@@ -1,0 +1,15 @@
+<h3>Liste des services</h3>
+<table border="2">
+    <th>Service</th>
+    <th>Supprimer</th>
+    <th>Mise</th>
+    {% for service in services %}
+        <tr>
+            <td>{{ service.nomservice }}</td>
+
+            <td><a href="{{ path('deleteservice',{'idservice':service.idservice}) }}">Supprimer</a></td>
+            <td><a href="{{ path('updateservice',{'idservice':service.idservice}) }}">Mise</a></td>
+
+        </tr>
+    {% endfor %}
+</table>

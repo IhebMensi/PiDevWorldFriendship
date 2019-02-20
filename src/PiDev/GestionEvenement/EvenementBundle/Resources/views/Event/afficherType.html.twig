@@ -1,0 +1,16 @@
+<h3>Liste des publicites</h3>
+<table border="2">
+    <th>Nom publicite</th>
+
+    <th>Supprimer</th>
+
+
+    {% for pub in events %}
+        <tr>
+            <td>{{ pub.nomtype }}</td>
+
+            <td><a href="{{ path('pi_dev_gestion_evenement_SupprimerType',{'idtype':pub.idtype}) }}">Supprimer</a></td>
+
+        </tr>
+    {% endfor %}
+</table>

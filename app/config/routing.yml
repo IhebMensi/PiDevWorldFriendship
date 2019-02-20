@@ -1,0 +1,45 @@
+pi_dev_gestion_categorie_categorie:
+    resource: "@PiDevGestionCategorieCategorieBundle/Resources/config/routing.yml"
+    prefix:   /admin/cat
+
+pi_dev_gestion_concours_concours:
+    resource: "@PiDevGestionConcoursConcoursBundle/Resources/config/routing.yml"
+    prefix:   /client/con
+
+pi_dev_gestion_vente_vente:
+    resource: "@PiDevGestionVenteVenteBundle/Resources/config/routing.yml"
+    prefix:   /client/ven
+
+pi_dev_gestion_publicite_publicite:
+    resource: "@PiDevGestionPublicitePubliciteBundle/Resources/config/routing.yml"
+    prefix:   /client/pub
+
+pi_dev_gestion_reclamation_reclamation:
+    resource: "@PiDevGestionReclamationReclamationBundle/Resources/config/routing.yml"
+    prefix:   /client/rec
+
+pi_dev_gestion_evenement_evenement:
+    resource: "@PiDevGestionEvenementEvenementBundle/Resources/config/routing.yml"
+    prefix:   /client/eve
+
+pi_dev_gestion_publication_publication:
+    resource: "@PiDevGestionPublicationPublicationBundle/Resources/config/routing.yml"
+    prefix:   /client/publication
+
+pi_dev_gestion_user_fos:
+    resource: "@PiDevGestionUserFosBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+acceuil_coord:
+    path:     /Acceuil
+    defaults: { _controller: PiDevGestionUserFosBundle:User:Acceuil }
+modif_c:
+    path:     /Modification
+    defaults: { _controller: PiDevGestionUserFosBundle:User:Modification }
+

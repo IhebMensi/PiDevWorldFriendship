@@ -1,0 +1,4 @@
+services:
+#    pi_dev_gestion_concours_concours.example:
+#        class: PiDev\GestionConcours\ConcoursBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

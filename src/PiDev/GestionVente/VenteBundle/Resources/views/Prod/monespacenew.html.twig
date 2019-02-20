@@ -1,0 +1,112 @@
+{% extends "base.html.twig" %}
+{% block Affichervente %}
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-3">
+                <div class="">
+                    <a class="dropdown-item" href="{{ path('gestion_vente_Afficher_produit') }} "> <span class="glyphicon glyphicon-eye-open"></span>Consulter  les Produits</a>
+                    <br>
+                    <a id="ajt" class="dropdown-item" href="{{ path ("gestion_vente_Ajouter_produit1") }}"> <span class="glyphicon glyphicon-plus"></span>Ajouter un Produit</a>
+
+                    {{ form( Form ) }}
+
+                </div>
+
+            </div>
+            <!-- /.col-lg-3 -->
+
+            <div class="col-lg-9">
+
+                <div id="carousel-appdev" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-appdev" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-appdev" data-slide-to="1"></li>
+                        <li data-target="#carousel-appdev" data-slide-to="2"></li>
+                        <li data-target="#carousel-appdev" data-slide-to="3"></li>
+                        <li data-target="#carousel-appdev" data-slide-to="4"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="{{ asset('images/a.jpg') }}" alt="apprendre drupal8">
+                            <div class="carousel-caption">
+                                <H1>    <I>   BIENVENU SUR NOTRE SITE WORLDFRIENDSHIP </I></H1>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="{{ asset('images/a.jpg') }}" alt="apprendre JAVA">
+                            <div class="carousel-caption">
+                                <H1>    <I>   BIENVENU SUR NOTRE SITE WORLDFRIENDSHIP </I></H1>
+
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="{{ asset('images/a.jpg') }}" alt="apprendre gimp">
+                            <div class="carousel-caption">
+                                <H1>    <I>   BIENVENU SUR NOTRE SITE WORLDFRIENDSHIP </I></H1>
+
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="{{ asset('images/a.jpg') }}" alt="apprendre laravel">
+                            <div class="carousel-caption">
+                                <H1>    <I>   BIENVENU SUR NOTRE SITE WORLDFRIENDSHIP </I></H1>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <div class="row">
+
+
+
+                    {% for valeur in EVE %}
+
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+
+                                <a href="#">    <img src="{{ asset('images/') }}{{ valeur.nomimage }}" style="width: 300px;height: 150px"></a>
+
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        {{ valeur.nomproduit }}
+                                    </h4>
+                                    <h5>{{ valeur.Prix }}TND</h5>
+                                    <p class="card-text">{{ valeur.descriptionproduit }}.</p>
+                                    <a href="{{ path('gestion_vente_Supprimer_produit',{'id':valeur.idproduit})   }}" >Annuler</a>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                                <div><SPAN class="glyphicon glyphicon-thumbs-up BLUE"><a href="{{ path('gestion_vente_Ajouter_produit1',{'id':valeur.idproduit})   }}" >J'aime</a></SPAN> {{ valeur.nbrlikes}}</div>
+
+
+
+                            </div>
+                        </div>
+                    {% endfor %}
+
+
+
+                </div>
+                <!-- /.row -->
+
+
+            </div>
+            <!-- /.col-lg-9 -->
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+{% endblock %}

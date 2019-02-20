@@ -1,0 +1,22 @@
+<h3>Liste des publicites</h3>
+<table border="2">
+    <th>Nom publicite</th>
+
+    <th>image</th>
+
+    <th>Supprimer</th>
+    <th>mise</th>
+
+    {% for pub in events %}
+        <tr>
+            <td>{{ pub.nomevenement }}</td>
+
+            <td> <a href="">
+                    <img src="{{ asset('images/') }}{{ pub.nomimage }}" style="width: 300px;height: 150px">
+                </a></td>
+            <td><a href="{{ path('pi_dev_gestion_evenement_Supprimer',{'idevenement':pub.idevenement}) }}">Supprimer</a></td>
+            <td><a href="{{ path('pi_dev_gestion_evenement_modifier',{'idevenement':pub.idevenement}) }}">mise</a></td>
+
+        </tr>
+    {% endfor %}
+</table>

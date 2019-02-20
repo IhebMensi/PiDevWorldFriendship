@@ -1,0 +1,20 @@
+<h3>Liste des Offre</h3>
+<table border="2">
+    <th>Nom offre</th>
+    <th>Prix</th>
+    <th>Description offre</th>
+    <th>Supprimer</th>
+    <th>mise</th>
+    {% for offre in offres %}
+        <tr>
+            <td>{{ offre.nomoffre }}</td>
+            <td>{{ offre.prix }}</td>
+            <td>{{ offre.descriptionoffre }}</td>
+
+
+            <td><a href="{{ path('deleteoffre',{'idoffre':offre.idoffre}) }}">Supprimer</a></td>
+            <td><a href="{{ path('updateoffre',{'idoffre':offre.idoffre}) }}">mise</a></td>
+
+        </tr>
+    {% endfor %}
+</table>

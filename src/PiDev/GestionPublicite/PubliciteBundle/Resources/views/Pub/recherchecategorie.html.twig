@@ -1,0 +1,10 @@
+<h3>Recherche une publicite selon categorie</h3>
+    {{ form(form1) }}
+{% for pub in pubs %}
+    <fieldset style="width: 30%">
+        <legend>Publicite n°{{ pub.idpublicite }}</legend>
+        <b>Nompublicite :</b> {{ pub.nompublicite }} <br>
+        <b>Contenupublicte:</b> {{ pub.contenupublicte }} <br>
+        <b>Lien:</b> {{ pub.lien }} <br>
+    </fieldset>
+{% endfor %}
