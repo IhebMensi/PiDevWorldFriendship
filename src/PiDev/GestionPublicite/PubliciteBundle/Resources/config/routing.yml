@@ -1,0 +1,64 @@
+pi_dev_gestion_publicite_publicite_homepage:
+    path:     /
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Default:index }
+ajoutpublicite:
+    path:     /ajoutpublicite
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:ajout }
+affichepublicite:
+    path:     /affichepublicite
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:affiche }
+deletepublicite:
+    path:     /deletepublicite
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:delete }
+updatepublicite:
+    path:     /updatepublicite
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:updatepublicite }
+recherchepublicite:
+    path:     /recherchepublicite
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:recherche }
+
+findcontenue:
+    path:     /recherche1publicite
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:recherchecontenuDQL }
+findcat:
+    path:     /recherchercat
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:recherchecat }
+findcategorie:
+    path:     /recherchecategorieDQL
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:recherchecategorieDQL }
+
+findlieu:
+    path:     /recherchelieuDQL
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:recherchelieuDQL }
+ajoutoffre:
+    path:     /ajoutoffre
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Offre:ajoutoffre }
+deleteoffre:
+    path:     /deleteoffre
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Offre:deleteoffre }
+updateoffre:
+    path:     /updateoffre
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Offre:updateoffre }
+afficheoffre:
+    path:     /afficheoffre
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Offre:afficheoffre }
+afficheoffre1:
+    path:     /afficheoffre1
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Offre:afficheoffre1 }
+findcategorie:
+    path:     /recherchelieuDQL
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:recherchecategorieDQL }
+
+profiterpublicite:
+    path:     /profiterpublicite
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:profiter }
+
+affiche11:
+    path:     /Afficherpub1/{idpublicite}
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:Afficherpub1 }
+
+Afficherprofituser:
+    path:     /Afficherprofituser
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:Afficherprofituser }
+
+

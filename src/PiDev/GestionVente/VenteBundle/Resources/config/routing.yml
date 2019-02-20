@@ -1,0 +1,18 @@
+pi_dev_gestion_vente_vente_homepage:
+    path:     /
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Default:index }
+gestion_vente_Ajouter_produit:
+    path:     /ajouterP
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:AjouterAfficherProduit }
+gestion_vente_Ajouter_produit1:
+    path:     /ajouterPnew
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:AjouterAfficherProduitnew }
+gestion_vente_Afficher_produit:
+    path:     /afficherP
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:AjouterAfficherProduit }
+gestion_vente_Supprimer_produit:
+    path:     /ann/{id}
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:SupprimerProduit }
+gestion_vente_Rechercher_produit:
+    path:     /rechercherP
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:RechercherProduit }

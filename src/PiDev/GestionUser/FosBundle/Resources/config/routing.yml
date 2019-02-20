@@ -1,0 +1,22 @@
+pi_dev_gestion_user_fos_homepage:
+    path:     /
+    defaults: { _controller: PiDevGestionUserFosBundle:Default:index }
+modif_coord:
+    path:     /
+    defaults: { _controller: PiDevGestionUserFosBundle:User:Modification }
+acceuil_coord:
+    path:     /
+    defaults: { _controller: PiDevGestionUserFosBundle:User:Acceuil }
+home_coord:
+    path:     /home
+    defaults: { _controller: PiDevGestionUserFosBundle:User:Home }
+
+home1_coord:
+    path:     /client/home1
+    defaults: { _controller: PiDevGestionUserFosBundle:User:Home1 }
+admin_coord:
+    path:     /admin/dash
+    defaults: { _controller: PiDevGestionUserFosBundle:User:Admin }
+role_coord:
+    path:     /
+    defaults: { _controller: PiDevGestionUserFosBundle:User:Role }

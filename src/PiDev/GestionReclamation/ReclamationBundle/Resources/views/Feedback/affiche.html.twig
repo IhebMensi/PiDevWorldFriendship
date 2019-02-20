@@ -1,0 +1,20 @@
+<h3>Liste des lieux</h3>
+<table border="2">
+    <th>Note</th>
+    <th>Nom Service</th>
+    <th>Description feedback</th>
+    <th>Datefeedback</th>
+    <th>Supprimer</th>
+    <th>mise</th>
+    {% for feedback in feedbacks %}
+        <tr>
+            <td>{{ feedback.note}}</td>
+            <td>{{ feedback.service.nomservice }}</td>
+            <td>{{ feedback.descriptionfeedback }}</td>
+            <td>{{ feedback.datefeedback | date('y-m-d')  }}</td>
+            <td><a href="{{ path('deletefeedback',{'idfeedback':feedback.idfeedback}) }}">Supprimer</a></td>
+            <td><a href="{{ path('updatefeedback',{'idfeedback':feedback.idfeedback }) }}">mise</a></td>
+
+        </tr>
+    {% endfor %}
+</table>

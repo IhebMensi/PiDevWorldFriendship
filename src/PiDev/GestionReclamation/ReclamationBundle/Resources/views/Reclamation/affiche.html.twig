@@ -1,0 +1,20 @@
+<h3>Liste des reclamations</h3>
+<table border="2">
+    <th>descriptionreclamation</th>
+    <th>titrereclamation</th>
+    <th>datereclam</th>
+    <th>Categorie</th>
+    <th>Supprimer</th>
+    <th>mise</th>
+    {% for reclam in reclams %}
+        <tr>
+            <td>{{ reclam.descriptionreclam }}</td>
+            <td>{{ reclam.titrereclam }}</td>
+            <td>{{ reclam.datereclam | date('y-m-d') }}</td>
+            <td>{{ reclam.categorie.nomcategorie }}</td>
+            <td><a href="{{ path('deletereclamation',{'idreclam':reclam.idreclam}) }}">Supprimer</a></td>
+            <td><a href="{{ path('updatereclamation',{'idreclam':reclam.idreclam}) }}">mise</a></td>
+
+        </tr>
+    {% endfor %}
+</table>

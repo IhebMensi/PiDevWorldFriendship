@@ -1,0 +1,3 @@
+pi_dev_gestion_publication_publication_homepage:
+    path:     /
+    defaults: { _controller: PiDevGestionPublicationPublicationBundle:Default:index }

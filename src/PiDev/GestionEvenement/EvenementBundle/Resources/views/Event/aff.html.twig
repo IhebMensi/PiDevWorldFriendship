@@ -1,0 +1,53 @@
+<h3>Liste des publicites</h3>
+<table border="2">
+    <th>Nom publicite</th>
+
+    <th>image</th>
+
+    <th>Supprimer</th>
+    <th>mise</th>
+    <th>participer</th>
+
+    <th>participer</th>
+    {% for pub in events %}
+        <tr>
+            <td>{{ pub.nomevenement }}</td>
+
+            <td> <a href="">
+                    <img src="{{ asset('images/') }}{{ pub.nomimage }}" style="width: 300px;height: 150px">
+                </a></td>
+            <td><a href="{{ path('pi_dev_gestion_evenement_Supprimer',{'idevenement':pub.idevenement}) }}">Supprimer</a></td>
+            <td><a href="{{ path('pi_dev_gestion_evenement_modifier',{'idevenement':pub.idevenement}) }}">mise</a></td>
+            <td>
+  <a href="{{ path('pi_dev_gestion_evenement_participer',{'idevenement':pub.idevenement} ) }}">participer</a>
+            </td>
+            <td>
+  <a href="{{ path('pi_dev_gestion_evenement_Annuler',{'idevenement':pub.idevenement} ) }}">Annuler</a>
+            </td>
+            <td> <a href="{{ path('pi_dev_gestion_evenement_Comment',{'idevenement':pub.idevenement} ) }}">Comm</a>
+            </td>
+
+
+            p
+        </tr>
+    {% endfor %}
+</table>
+
+
+}
+        <tr>
+            <td>{{ com
+                <h3>Liste des publicites</h3>
+                <table border="2">
+                <th>Nom publicite</th>
+
+                <th>image</th>
+
+
+                {% for com in coms %.comment }}</td>
+            <td>{{ com.user.nom}}</td>
+{% if com.user %}
+
+        </tr>
+    {% endfor %}
+</table>

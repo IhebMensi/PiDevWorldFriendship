@@ -1,0 +1,74 @@
+{% extends "base.html.twig" %}
+
+{% block contenu %}
+    <!-- Sign Up Form
+        ================================================= -->
+    <div class="sign-up-form">
+        <br>
+        <a href="index.html" class="logo"><img src="images/logofs.png" alt=""width="175px" height="175px"/></a>
+        <h1 class="text-white">World Friendship</h1>
+        <div class="line-divider"></div>
+        <div class="form-wrapper">
+            <p class="signup-text">Signup now and meet awesome people around the world</p>
+
+            <div>
+                {% block fos_user_content %}
+                {% endblock fos_user_content %}
+            </div>
+            <p>By signning up you agree to the terms</p>
+
+        </div>
+        <a href="#">Already have an account?</a>
+        <img class="form-shadow" src="images/bottom-shadow.png" alt="" />
+    </div><!-- Sign Up Form End -->
+
+    <svg class="arrows hidden-xs hidden-sm">
+        <path class="a1" d="M0 0 L30 32 L60 0"></path>
+        <path class="a2" d="M0 20 L30 52 L60 20"></path>
+        <path class="a3" d="M0 40 L30 72 L60 40"></path>
+    </svg>
+    </div>
+    </section>
+    <!-- Features Section
+   ================================================= -->
+    <section id="features">
+        <div class="container wrapper">
+            <img src="{{ asset('images/a.jpg') }}" width="1250px" height="650px">
+
+            <!--div class="row slideUp">
+                <div class="feature-item col-md-2 col-sm-6 col-xs-6 col-md-offset-2">
+                    <div class="feature-icon"><i class="icon ion-person-add"></i></div>
+                    <h3>Make Friends</h3>
+                </div>
+                <div class="feature-item col-md-2 col-sm-6 col-xs-6">
+                    <div class="feature-icon"><i class="icon ion-images"></i></div>
+                    <h3>Publish Posts</h3>
+                </div>
+                <div class="feature-item col-md-2 col-sm-6 col-xs-6">
+                    <div class="feature-icon"><i class="icon ion-chatbox-working"></i></div>
+                    <h3>Private Chats</h3>
+                </div>
+                <div class="feature-item col-md-2 col-sm-6 col-xs-6">
+                    <div class="feature-icon"><i class="icon ion-compose"></i></div>
+                    <h3>Create Polls</h3>
+                </div>
+            </div>
+            <h2 class="sub-title">find awesome people like you</h2>
+            <div id="incremental-counter" data-value="101242"></div>
+            <p>People Already Signed Up</p>
+            <img src="{{ asset('images/face-map.png') }}" alt="" class="img-responsive face-map slideUp hidden-sm hidden-xs" /-->
+        </div>
+
+    </section>
+    <!-- Image Divider
+    ================================================= -->
+
+
+{% endblock %}
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+<h3>Liste des publicites</h3>
+<table border="2">
+    <th>Id</th>
+    <th>Libelle</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    {% for pub in pubs %}
+        <tr>
+            <td>{{ pub.nompublicite }}</td>
+            <td>{{ pub.contenupublicte }}</td>
+            <td>{{ pub.lien }}</td>
+
+        </tr>
+    {% endfor %}
+</table>

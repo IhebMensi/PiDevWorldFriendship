@@ -1,0 +1,64 @@
+pi_dev_gestion_evenement_evenement_homepage:
+    path:     /
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Default:index }
+
+
+pi_dev_gestion_evenement_Ajoute:
+    path:     /AjouteEvent
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:Ajouter}
+
+pi_dev_gestion_evenement_Afficher:
+    path:     /AfficherEvent
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:AfficherEvent}
+
+
+
+pi_dev_gestion_evenement_Afficher1:
+    path:     /AfficherEvent1/{idevenement}
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:AfficherEvent1}
+
+pi_dev_gestion_evenement_modifier:
+    path:     /ModifierEvent
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:modifierEvent}
+
+
+pi_dev_gestion_evenement_Supprimer:
+    path:     /SupprimerEvent
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:supprimerEvent}
+
+pi_dev_gestion_evenement_participer:
+    path:     /ParticiperEvent
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:ParticiperEvent}
+
+pi_dev_gestion_evenement_Annuler:
+    path:     /AnnulerEvent
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:AnnulerEvent}
+
+pi_dev_gestion_evenement_affparticiper:
+    path:     /affEventpar
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:AfficherEventparticiper}
+
+pi_dev_gestion_evenement_AjouteType:
+    path:     /AjouteEventType
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:TypeEvenement:AjouterType}
+
+pi_dev_gestion_evenement_AfficherType:
+    path:     /AfficherEventType
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:TypeEvenement:AfficherTypeEvent}
+
+
+pi_dev_gestion_evenement_SupprimerType:
+    path:     /SupprimerEventType
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:TypeEvenement:supprimerEventType}
+
+pi_dev_gestion_evenement_findcontenue:
+    path:     /recherche1Evenement
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:recherchecontenuDQL }
+
+pi_dev_gestion_evenement_findcontenue1:
+    path:     /recherche2Evenement
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:recherchecontenu }
+
+pi_dev_gestion_evenement_Comment:
+    path:     /AjouterComment2
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:AjouterComment }

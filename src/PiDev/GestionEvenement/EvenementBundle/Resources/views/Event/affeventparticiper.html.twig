@@ -1,0 +1,17 @@
+<h3>Liste des publicites</h3>
+<table border="2">
+    <th>Nom publicite</th>
+
+    <th>image</th>
+
+    <th>Supprimer</th>
+    <th>mise</th>
+    <th>participer</th>
+    {% for a in events %}
+        <tr>
+            <td>{{ a.even.nomevenement }}</td>
+
+
+        </tr>
+    {% endfor %}
+</table>

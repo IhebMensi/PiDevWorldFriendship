@@ -1,0 +1,39 @@
+pi_dev_gestion_reclamation_reclamation_homepage:
+    path:     /
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Default:index }
+ajoutreclamation:
+    path:     /ajoutreclamation
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Reclamation:ajout }
+affichereclamation:
+    path:     /affichereclamation
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Reclamation:affiche }
+deletereclamation:
+    path:     /deletereclamation
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Reclamation:delete }
+updatereclamation:
+    path:     /updatereclamation
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Reclamation:updatereclamation }
+ajoutservice:
+    path:     /ajoutservice
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Service:ajout }
+afficheservice:
+    path:     /afficheservice
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Service:affiche }
+deleteservice:
+    path:     /deleteservice
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Service:delete }
+updateservice:
+    path:     /updateservice
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Service:update }
+ajoutfeedback:
+    path:     /ajoutfeedback
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Feedback:ajout }
+affichefeedback:
+    path:     /affichefeedback
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Feedback:affiche }
+deletefeedback:
+    path:     /deletefeedback
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Feedback:delete }
+updatefeedback:
+    path:     /updatefeedback
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Feedback:update }

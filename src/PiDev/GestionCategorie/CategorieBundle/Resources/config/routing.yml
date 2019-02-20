@@ -1,0 +1,3 @@
+pi_dev_gestion_categorie_categorie_homepage:
+    path:     /
+    defaults: { _controller: PiDevGestionCategorieCategorieBundle:Default:index }

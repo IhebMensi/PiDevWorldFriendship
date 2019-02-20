@@ -1,0 +1,22 @@
+<h3>nom evenement</h3>
+{{ form(Form) }}
+<h3>Liste des publicites</h3>
+<table border="2">
+    <th>Nom publicite</th>
+
+    <th>image</th>
+
+    <th>add</th>
+
+    {% for pub in events %}
+        <tr>
+            <td>{{ pub.nomevenement }}</td>
+
+            <td> <a href="">
+                    <img src="{{ asset('images/') }}{{ pub.nomimage }}" style="width: 300px;height: 150px">
+                </a></td>
+
+            <td> {{ pub.adresse }}</td>
+        </tr>
+    {% endfor %}
+</table>
