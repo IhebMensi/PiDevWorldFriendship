@@ -56,23 +56,50 @@ class PubRepository extends EntityRepository
 
         return $query->getResult();
     }
-    public function findLieuParametre($pays,$region,$adresse,$nomcategorie)
+    public function findLieullParametre($pays,$region,$nomcategorie)
     {
         $query=$this->getEntityManager()
-            ->createQuery("SELECT p FROM PiDevGestionPublicitePubliciteBundle:Pub p left join  p.categorie m  ON m.nomcategorie =:nomcategorie  " )
-            ->setParameter('pays',$pays)->setParameter('region',$region)->setParameter('adresse',$adresse)->setParameter('nomcategorie',$nomcategorie);
+            ->createQuery("SELECT p FROM PiDevGestionPublicitePubliciteBundle:Pub p  JOIN  p.categorie m  
+            where (m.nomcategorie =:nomcategorie AND  p.pays =:pays AND p.region =:region  ) 
+            OR (m.nomcategorie =:nomcategorie AND  p.pays =:pays )   OR (  p.pays =:pays AND  p.region =:region ) 
+               OR (m.nomcategorie =:nomcategorie AND p.region =:region) 
+                    " )
+            ->setParameter('pays',$pays)->setParameter('region',$region)->setParameter('nomcategorie',$nomcategorie);
 
         return $query->getResult();
     }
     public function findLieu1Parametre($pays,$region,$adresse)
     {
         $query=$this->getEntityManager()
-            ->createQuery("SELECT p FROM PiDevGestionPublicitePubliciteBundle:Pub p   where p.pays =:pays OR p.region =:region OR p.adresse =:adresse " )
+            ->createQuery("SELECT p FROM PiDevGestionPublicitePubliciteBundle:Pub p   where p.pays =:pays OR p.region =:region OR p.adresse =:adresse" )
             ->setParameter('pays',$pays)->setParameter('region',$region)->setParameter('adresse',$adresse);
 
         return $query->getResult();
     }
 
+    public function findetatParametre()
+    {
+        $query=$this->getEntityManager()
+            ->createQuery("SELECT p FROM PiDevGestionPublicitePubliciteBundle:Pub p   where p.etat =:etat")
+            ->setParameter('etat','oui');
+
+        return $query->getResult();
+    }
+    public function findByPays1(){
+        $query=$this->createQueryBuilder('m')
+            ->where('m.Pays = :param')
+            ->setParameter('param','Allemagne');
+        return $query->getQuery()->getResult();
+
+    }
+    public function findreParametre($User,$Pub,$reaction)
+    {
+        $query=$this->getEntityManager()
+            ->createQuery("SELECT p FROM PiDevGestionPublicitePubliciteBundle:ReactionPub p   where p.User =:User AND p.Pub =:Pub AND p.reaction =:reaction" )
+            ->setParameter('User',$User)->setParameter('Pub',$Pub)->setParameter('reaction',$reaction);
+
+        return $query->getResult();
+    }
 
 public function deletepub($idpublicite)
 {

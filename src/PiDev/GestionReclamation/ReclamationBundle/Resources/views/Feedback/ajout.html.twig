@@ -104,16 +104,12 @@
 
                                 <h5>note <i  class="tip" data-tip-content="Name of your business"></i></h5>
                                 {{ form_start(Form) }}
-                                {{ form_widget(Form.note, { 'attr': {'class': 'tip', 'placeholder':'entrer le nom evenement '} }) }}
+                                {{ form_widget(Form.note|rating, { 'attr': {'class': 'tip', 'placeholder':'entrer le nom evenement '} }) }}
 
 
                             </div>
 
-                            <div class="col-md-12">
-                                <h5>service  <i  class="tip1" data-tip-content="Name of your business"  ></i></h5>
 
-                                {{ form_widget(Form.service, { 'attr': {'class': 'tip1', 'placeholder':'type' } }) }}
-                            </div>
                             <div class="col-md-2">
                                 <div class="row with-forms">
 

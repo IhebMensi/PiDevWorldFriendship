@@ -8,21 +8,25 @@
         ================================================= -->
         <div class="timeline">
             <div class="timeline-cover">
-                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                {% block fos_user_content %}
-                {% endblock fos_user_content %}
+
                 <!--Timeline Menu for Large Screens-->
                 <div class="timeline-nav-bar hidden-sm hidden-xs">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-lg-3 col-md-3">
                             <div class="profile-info">
                                 <img src="{{ asset('images/abc.jpg') }}" alt="" class="img-responsive profile-photo" />
-                                <h3>Sarah Cruiz</h3>
-                                <p class="text-muted">Creative Director</p>
+                                <div class="card-body">
+
+
+                                </div>
+
                             </div>
+
                         </div>
-                        <div class="col-md-9">
+
+
+
+                        <div class="col-lg-9 l-md-9">
                             <ul class="list-inline profile-menu">
                                 <li><a href="{{ path('acceuil_coord') }}">Acceuil</a></li>
                                 <li><a href="{{ path('modif_c') }}" class="active">Modifier_Coordonnées</a></li>
@@ -37,7 +41,8 @@
                     </div>
 
                 </div><!--Timeline Menu for Large Screens End-->
-
+                {% block fos_user_content %}
+                {% endblock fos_user_content%}
                 <!--Timeline Menu for Small Screens-->
                 <div class="navbar-mobile hidden-lg hidden-md">
                     <div class="profile-info">

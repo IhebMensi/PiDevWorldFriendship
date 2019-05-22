@@ -22,6 +22,7 @@ class Evenement
      */
     private $idevenement;
 
+
     /**
      * @var string
      *
@@ -54,14 +55,22 @@ class Evenement
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="datedebut", type="date")
+     * @ORM\Column(name="datedebut", type="datetime")
+     *
+     * @Assert\Type("DateTime")
+     *
+     * @Assert\GreaterThan("today")
      */
     private $datedebut;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="datefin", type="date")
+     * @ORM\Column(name="datefin", type="datetime")
+     *
+     * @Assert\Type("DateTime")
+     *
+     * @Assert\Expression("value >= this.getDatedebut()")
      */
     private $datefin;
 
@@ -79,20 +88,13 @@ class Evenement
     private $nbrparticipants=0;
 
 
-    /**
-     * @ORM\Column(type="string",length=255,nullable=true)
-     */
-    public $nomimage;
 
-    /**
-     * @Assert\File(maxSize="5000k")
-     */
-    public $file;
     /**
      * @var int
      *
      * @ORM\Column(name="nbrplacestotal", type="integer")
      */
+
     private $nbrplacestotal;
 
     /**
@@ -114,6 +116,17 @@ class Evenement
      * @ORM\Column(name="prixtickets", type="integer")
      */
     private $prixtickets=0;
+
+
+    /**
+     * @ORM\Column(type="string",length=255,nullable=true)
+     */
+    public $nomimage;
+
+    /**
+     * @Assert\File(maxSize="5000k")
+     */
+    public $file;
     /**
      * @ORM\ManyToOne(targetEntity="PiDev\GestionUser\FosBundle\Entity\User", inversedBy="evenements")
      * @ORM\JoinColumn(referencedColumnName="id")
@@ -140,34 +153,44 @@ class Evenement
      */
     private $lieu;
 
+
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nbrlikes", type="integer")
+     */
+    private $nbrlikes=0;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nbrdislikes", type="integer")
+     */
+    private $nbrdislikes=0;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nbsignal", type="integer")
+     */
+    private $nbsignal=0;
+
     /**
      * @return int
      */
-
     public function getIdevenement()
     {
         return $this->idevenement;
     }
 
-
-
     /**
-     * Set nomevenement
-     *
-     * @param string $nomevenement
-     *
-     * @return Evenement
+     * @param int $idevenement
      */
-    public function setNomevenement($nomevenement)
+    public function setIdevenement($idevenement)
     {
-        $this->nomevenement = $nomevenement;
-
-        return $this;
+        $this->idevenement = $idevenement;
     }
 
     /**
-     * Get nomevenement
-     *
      * @return string
      */
     public function getNomevenement()
@@ -176,22 +199,62 @@ class Evenement
     }
 
     /**
-     * Set datedebut
-     *
-     * @param \DateTime $datedebut
-     *
-     * @return Evenement
+     * @param string $nomevenement
      */
-    public function setDatedebut($datedebut)
+    public function setNomevenement($nomevenement)
     {
-        $this->datedebut = $datedebut;
-
-        return $this;
+        $this->nomevenement = $nomevenement;
     }
 
     /**
-     * Get datedebut
-     *
+     * @return string
+     */
+    public function getPays()
+    {
+        return $this->pays;
+    }
+
+    /**
+     * @param string $pays
+     */
+    public function setPays($pays)
+    {
+        $this->pays = $pays;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRegion()
+    {
+        return $this->region;
+    }
+
+    /**
+     * @param string $region
+     */
+    public function setRegion($region)
+    {
+        $this->region = $region;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * @param string $adresse
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+    }
+
+    /**
      * @return \DateTime
      */
     public function getDatedebut()
@@ -200,23 +263,15 @@ class Evenement
     }
 
     /**
-     * Set datefin
-     *
-     * @param string $datefin
-     *
-     * @return Evenement
+     * @param \DateTime $datedebut
      */
-    public function setDatefin($datefin)
+    public function setDatedebut($datedebut)
     {
-        $this->datefin = $datefin;
-
-        return $this;
+        $this->datedebut = $datedebut;
     }
 
     /**
-     * Get datefin
-     *
-     * @return string
+     * @return \DateTime
      */
     public function getDatefin()
     {
@@ -224,40 +279,14 @@ class Evenement
     }
 
     /**
-     * @return mixed
+     * @param \DateTime $datefin
      */
-    public function getParevent()
+    public function setDatefin($datefin)
     {
-        return $this->parevent;
+        $this->datefin = $datefin;
     }
 
     /**
-     * @param mixed $parevent
-     */
-    public function setParevent($parevent)
-    {
-        $this->parevent = $parevent;
-    }
-
-
-
-    /**
-     * Set descriptionevenement
-     *
-     * @param string $descriptionevenement
-     *
-     * @return Evenement
-     */
-    public function setDescriptionevenement($descriptionevenement)
-    {
-        $this->descriptionevenement = $descriptionevenement;
-
-        return $this;
-    }
-
-    /**
-     * Get descriptionevenement
-     *
      * @return string
      */
     public function getDescriptionevenement()
@@ -266,22 +295,14 @@ class Evenement
     }
 
     /**
-     * Set nbrparticipants
-     *
-     * @param integer $nbrparticipants
-     *
-     * @return Evenement
+     * @param string $descriptionevenement
      */
-    public function setNbrparticipants($nbrparticipants)
+    public function setDescriptionevenement($descriptionevenement)
     {
-        $this->nbrparticipants = $nbrparticipants;
-
-        return $this;
+        $this->descriptionevenement = $descriptionevenement;
     }
 
     /**
-     * Get nbrparticipants
-     *
      * @return int
      */
     public function getNbrparticipants()
@@ -290,28 +311,175 @@ class Evenement
     }
 
     /**
-     * Set image
-     *
-     * @param string $image
-     *
-     * @return Evenement
+     * @param int $nbrparticipants
      */
-    public function setImage($image)
+    public function setNbrparticipants($nbrparticipants)
     {
-        $this->image = $image;
-
-        return $this;
+        $this->nbrparticipants = $nbrparticipants;
     }
 
     /**
-     * Get image
-     *
+     * @return int
+     */
+    public function getNbrplacestotal()
+    {
+        return $this->nbrplacestotal;
+    }
+
+    /**
+     * @param int $nbrplacestotal
+     */
+    public function setNbrplacestotal($nbrplacestotal)
+    {
+        $this->nbrplacestotal = $nbrplacestotal;
+    }
+
+    /**
      * @return string
      */
-    public function getImage()
+    public function getPayment()
     {
-        return $this->image;
+        return $this->payment;
     }
+
+    /**
+     * @param string $payment
+     */
+    public function setPayment($payment)
+    {
+        $this->payment = $payment;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbrtickets()
+    {
+        return $this->nbrtickets;
+    }
+
+    /**
+     * @param int $nbrtickets
+     */
+    public function setNbrtickets($nbrtickets)
+    {
+        $this->nbrtickets = $nbrtickets;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPrixtickets()
+    {
+        return $this->prixtickets;
+    }
+
+    /**
+     * @param int $prixtickets
+     */
+    public function setPrixtickets($prixtickets)
+    {
+        $this->prixtickets = $prixtickets;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    /**
+     * @param mixed $categorie
+     */
+    public function setCategorie($categorie)
+    {
+        $this->categorie = $categorie;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTypeevenement()
+    {
+        return $this->typeevenement;
+    }
+
+    /**
+     * @param mixed $typeevenement
+     */
+    public function setTypeevenement($typeevenement)
+    {
+        $this->typeevenement = $typeevenement;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLieu()
+    {
+        return $this->lieu;
+    }
+
+    /**
+     * @param mixed $lieu
+     */
+    public function setLieu($lieu)
+    {
+        $this->lieu = $lieu;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbrlikes()
+    {
+        return $this->nbrlikes;
+    }
+
+    /**
+     * @param int $nbrlikes
+     */
+    public function setNbrlikes($nbrlikes)
+    {
+        $this->nbrlikes = $nbrlikes;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbrdislikes()
+    {
+        return $this->nbrdislikes;
+    }
+
+    /**
+     * @param int $nbrdislikes
+     */
+    public function setNbrdislikes($nbrdislikes)
+    {
+        $this->nbrdislikes = $nbrdislikes;
+    }
+
+
+
 
     public function getWebPath()
     {
@@ -368,199 +536,22 @@ class Evenement
         $this->file = $file;
     }
 
-
-    /**
-     * Set nbrplacestotal
-     *
-     * @param integer $nbrplacestotal
-     *
-     * @return Evenement
-     */
-    public function setNbrplacestotal($nbrplacestotal)
-    {
-        $this->nbrplacestotal = $nbrplacestotal;
-
-        return $this;
-    }
-
-    /**
-     * Get nbrplacestotal
-     *
-     * @return int
-     */
-    public function getNbrplacestotal()
-    {
-        return $this->nbrplacestotal;
-    }
-
-    /**
-     * Set nbrtickets
-     *
-     * @param integer $nbrtickets
-     *
-     * @return Evenement
-     */
-    public function setNbrtickets($nbrtickets)
-    {
-        $this->nbrtickets = $nbrtickets;
-
-        return $this;
-    }
-
-    /**
-     * Get nbrtickets
-     *
-     * @return int
-     */
-    public function getNbrtickets()
-    {
-        return $this->nbrtickets;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-
-    /**
-     * @param mixed $user
-     */
-    public function setUser($user)
-    {
-        $this->user = $user;
-    }
-
-
-    /**
-     * @return mixed
-     */
-    public function getCategorie()
-    {
-        return $this->categorie;
-    }
-
-    /**
-     * @param mixed $categorie
-     */
-    public function setCategorie($categorie)
-    {
-        $this->categorie = $categorie;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTypeevenement()
-    {
-        return $this->typeevenement;
-    }
-
-    /**
-     * @param mixed $typeevenement
-     */
-    public function setTypeevenement($typeevenement)
-    {
-        $this->typeevenement = $typeevenement;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLieu()
-    {
-        return $this->lieu;
-    }
-
-    /**
-     * @param mixed $lieu
-     */
-    public function setLieu($lieu)
-    {
-        $this->lieu = $lieu;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPays()
-    {
-        return $this->pays;
-    }
-
-    /**
-     * @param string $pays
-     */
-    public function setPays($pays)
-    {
-        $this->pays = $pays;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRegion()
-    {
-        return $this->region;
-    }
-
-    /**
-     * @param string $region
-     */
-    public function setRegion($region)
-    {
-        $this->region = $region;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAdresse()
-    {
-        return $this->adresse;
-    }
-
-    /**
-     * @param string $adresse
-     */
-    public function setAdresse($adresse)
-    {
-        $this->adresse = $adresse;
-    }
-
     /**
      * @return int
      */
-    public function getPrixtickets()
+    public function getNbsignal()
     {
-        return $this->prixtickets;
+        return $this->nbsignal;
     }
 
     /**
-     * @param int $prixtickets
+     * @param int $nbsignal
      */
-    public function setPrixtickets($prixtickets)
+    public function setNbsignal($nbsignal)
     {
-        $this->prixtickets = $prixtickets;
+        $this->nbsignal = $nbsignal;
     }
 
-    /**
-     * @return string
-     */
-    public function getPayment()
-    {
-        return $this->payment;
-    }
-
-    /**
-     * @param string $payment
-     */
-    public function setPayment($payment)
-    {
-        $this->payment = $payment;
-    }
 
 
 }

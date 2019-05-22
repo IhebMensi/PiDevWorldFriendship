@@ -1,0 +1,25 @@
+h3>mon cal</h3>
+<table border="2">
+    <th>Nom </th>
+
+    <th>Discription </th>
+    <th>Date debut </th>
+    <th>Date fin </th>
+    <th>Supprimer</th>
+
+    <th>moder</th>
+    {% for pub in events %}
+        <tr>
+            <td>{{ pub.nomcal }}</td>
+            <td>{{ pub.descriptioncal }}</td>
+            <td>{{ pub.datecald |date('Y-m-d') }}</td>
+            <td>{{ pub.datecalf |date('Y-m-d')}}</td>
+
+            <td><a href="{{ path('pi_dev_gestion_evenement_Supprimercal',{'idcal':pub.idcal}) }}">Supprimer</a></td>
+            <td><a href="{{ path('pi_dev_gestion_evenement_modifiercal',{'idcal':pub.idcal}) }}">Modifier</a></td>
+
+            :
+
+        </tr>
+    {% endfor %}
+</table>

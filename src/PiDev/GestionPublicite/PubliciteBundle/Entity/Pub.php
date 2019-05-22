@@ -82,14 +82,27 @@ class Pub
      * @ORM\Column(name="adresse", type="string", length=255)
      */
      private $adresse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etatreclam", type="string", length=255)
+     */
+    private $etat="non";
+
     /**
      * @ORM\Column(type="date")
+     * @Assert\Type("DateTime")
+     * @Assert\GreaterThan("today")
      */
     private $datepublicite;
 
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\Type("DateTime")
+     * @Assert\Expression("value >= this.getDatepublicite()")
+
      */
     private $datepublicitefin;
 
@@ -131,6 +144,57 @@ class Pub
 
      */
     private $nbrprofit=0;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nbrlikes", type="integer")
+     */
+    private $nbrlikes=0;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nbrdislikes", type="integer")
+     */
+    private $nbrdislikes=0;
+
+
+
+
+    /**
+     * @return int
+     */
+    public function getNbrlikes()
+    {
+        return $this->nbrlikes;
+    }
+
+    /**
+     * @param int $nbrlikes
+     */
+    public function setNbrlikes($nbrlikes)
+    {
+        $this->nbrlikes = $nbrlikes;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbrdislikes()
+    {
+        return $this->nbrdislikes;
+    }
+
+    /**
+     * @param int $nbrdislikes
+     */
+    public function setNbrdislikes($nbrdislikes)
+    {
+        $this->nbrdislikes = $nbrdislikes;
+    }
+
+
+
     /**
      * @return mixed
      */
@@ -368,7 +432,7 @@ class Pub
 
     public function getWebPath()
     {
-        return null===$this->image ? null : $this->getUploadDir().'/'.$this->image;
+       // return null===$this->image ? null : $this->getUploadDir().'/'.$this->image;
     }
     public function getUploadRootDir()
     {
@@ -383,9 +447,16 @@ class Pub
 
     public function  uploadProfilePicture()
     {
-        $this->file->move($this->getUploadRootDir(), $this->file->getClientOriginalName());
-        $this->nomimage=$this->file->getClientOriginalName();
-        $this->file=null;
+        if (null === $this->file) {
+            return;
+        }
+        if(!$this->idpublicite){
+            $this->file->move($this->getUploadRootDir(), $this->file->getClientOriginalName());
+        }else{
+
+            $this->file->move($this->getUploadRootDir(), $this->file->getClientOriginalName());
+        }
+        $this->setNomimage($this->file->getClientOriginalName());
     }
 
     /**
@@ -493,6 +564,22 @@ class Pub
     public function setNbrprofit($nbrprofit)
     {
         $this->nbrprofit = $nbrprofit;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @param string $etat
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
     }
 
 

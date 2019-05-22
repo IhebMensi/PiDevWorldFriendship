@@ -4,6 +4,7 @@ namespace PiDev\GestionCategorie\CategorieBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use PiDev\GestionUser\FosBundle\Entity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 use FOS\UserBundle\Model\User as BaseUser;
 
@@ -27,7 +28,7 @@ class Categorie
     /**
      * @var string
      *
-     * @ORM\Column(name="nomcategorie", type="string", length=255)
+     * @ORM\Column(name="nomcategorie", type="string", length=25, unique=true)
      */
     private $nomcategorie;
 
@@ -36,10 +37,12 @@ class Categorie
      *
      * @ORM\Column(name="nbrabonnees", type="integer")
      */
-    private $nbrabonnees;
+    private $nbrabonnees=0;
     /**
      * @var string
      *
+     * @Assert\NotBlank(message="Please, upload an image.")
+     * @Assert\Image()
      * @ORM\Column(name="imgcatgorie", type="string", length=255)
      */
     private $imagecategorie;

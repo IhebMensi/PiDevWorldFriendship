@@ -1,0 +1,22 @@
+<h1>Rechercher DQL Produit par categorie</h1>
+{{ form(Form) }}
+<h3>Liste des pproduits</h3>
+<table border="2">
+    <th>Nom publicite</th>
+    <th>Contenu publicite</th>
+    <th>Date publicite</th>
+    {% for prod in prods %}
+        <tr>
+            <td>{{ prod.nomproduit }}</td>
+            <td>{{ prod.prix }}</td>
+            <td>{{ prod.categorie }}</td>
+
+        </tr>
+    {% endfor %}
+</table>
+
+
+
+
+
+

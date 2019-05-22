@@ -23,23 +23,23 @@ class CommentaireProduit
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $idcommentaire;
-
     /**
      * @var string
      *
      * @ORM\Column(name="contenu", type="string", length=255)
      */
     private $contenu;
+
     /**
-     * @ORM\ManyToOne(targetEntity="PiDev\GestionUser\FosBundle\Entity\User")
-     * @ORM\JoinColumn(referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="PiDev\GestionUser\FosBundle\Entity\User", inversedBy="Commentaires")
+     * @ORM\JoinColumn(name="user_id",referencedColumnName="id")
      */
-    private $userid;
+    private $user;
     /**
-     * @ORM\ManyToOne(targetEntity="Produit")
-     * @ORM\JoinColumn(referencedColumnName="idproduit")
+     * @ORM\ManyToOne(targetEntity="PiDev\GestionVente\VenteBundle\Entity\Produit", inversedBy="Commentaires")
+     * @ORM\JoinColumn(name="id_produit",referencedColumnName="idproduit",onDelete="CASCADE"))
      */
-    private $idproduit;
+    private $produit;
 
     /**
      * @return int
@@ -60,34 +60,36 @@ class CommentaireProduit
     /**
      * @return mixed
      */
-    public function getUserid()
+    public function getUser()
     {
-        return $this->userid;
+        return $this->user;
     }
 
     /**
-     * @param mixed $userid
+     * @param mixed $user
      */
-    public function setUserid($userid)
+    public function setUser($user)
     {
-        $this->userid = $userid;
+        $this->user = $user;
     }
 
     /**
      * @return mixed
      */
-    public function getIdproduit()
+    public function getProduit()
     {
-        return $this->idproduit;
+        return $this->produit;
     }
 
     /**
-     * @param mixed $idproduit
+     * @param mixed $produit
      */
-    public function setIdproduit($idproduit)
+    public function setProduit($produit)
     {
-        $this->idproduit = $idproduit;
+        $this->produit = $produit;
     }
+
+
 
 
 
@@ -115,5 +117,7 @@ class CommentaireProduit
     {
         return $this->contenu;
     }
+
+
 }
 

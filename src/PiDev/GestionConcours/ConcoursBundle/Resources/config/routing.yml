@@ -1,3 +1,31 @@
 pi_dev_gestion_concours_concours_homepage:
     path:     /
     defaults: { _controller: PiDevGestionConcoursConcoursBundle:Default:index }
+
+listConcours:
+    path: /listConcours
+    defaults: { _controller: PiDevGestionConcoursConcoursBundle:Concours:listConcours }
+
+listConcoursBack:
+    path: /listConcoursBack
+    defaults: { _controller: PiDevGestionConcoursConcoursBundle:Concours:listConcoursBack }
+
+addConcours:
+    path: /addConcours
+    defaults: { _controller: PiDevGestionConcoursConcoursBundle:Concours:addConcours }
+
+modifConcours:
+    path: /modifConcours
+    defaults: { _controller: PiDevGestionConcoursConcoursBundle:Concours:modifConcours }
+
+suppConcours:
+    path: /suppConcours
+    defaults: { _controller: PiDevGestionConcoursConcoursBundle:Concours:suppConcours}
+
+filtreConcours:
+    path: /filtreConcours
+    defaults: { _controller: PiDevGestionConcoursConcoursBundle:Concours:rechercheencoursDQL}
+
+participer:
+    path: /participer
+    defaults: { _controller: PiDevGestionConcoursConcoursBundle:ParticipationConcours:participerConcours}

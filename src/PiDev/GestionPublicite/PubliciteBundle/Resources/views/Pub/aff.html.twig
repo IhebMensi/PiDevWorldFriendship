@@ -1,19 +1,63 @@
+
 <!DOCTYPE html>
-<head>
-
-    <!-- Basic Page Needs
-    ================================================== -->
-    <title>Listeo</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href=" {{ asset ('css2/style.css') }}">
-    <link rel="stylesheet" href="{{ asset ('css2/colors/main.css') }}" id="colors">
-</head>
 
 <body>
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+<!-- Bootstrap -->
+<link type="text/css" rel="stylesheet" href="{{ asset('cssv/bootstrap.min.css') }}"/>
+<!-- Slick -->
+<link type="text/css" rel="stylesheet" href="{{ asset('cssv/slick.css') }}"/>
+<link type="text/css" rel="stylesheet" href="{{ asset('cssv/slick-theme.css') }}"/>
+<!-- nouislider -->
+<link type="text/css" rel="stylesheet" href="{{ asset('cssv/nouislider.min.css') }}"/>
+<!-- Font Awesome Icon -->
+<link rel="stylesheet" href="{{ asset('cssv/font-awesome.min.css') }}">
+<!-- Custom stlylesheet -->
+<link type="text/css" rel="stylesheet" href="{{ asset('cssv/style.css') }}"/>
+<link rel="shortcut icon" type="image/png" href="{{ asset('a.jpg') }}"/>
+<!-- Stylesheets
+================================================= -->
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/ionicons.min.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" />
+
+<!--Google Font-->
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
+
+<!--Favicon-->
+<link rel="shortcut icon" type="image/png" href="{{ asset('images/fav.png') }}"/>
+
+<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+
+
+<link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet'">
+
+
+<!-- Custom styles for this template -->
+<link href="{{ asset('css1/shop-homepage.css') }}" rel="stylesheet">
+<link href="{{ asset('img/favicon.png') }}" rel="icon">
+<link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+<!-- GoogleFonts -->
+<link href="{{ asset('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700') }}" rel="stylesheet">
+<!-- Bootstrap CSS File -->
+<link href="{{ asset('lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+<!-- Libraries CSS Files -->
+<link href="{{ asset('lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+<link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
+<!-- Main Stylesheet File -->
+<link href="{{ asset('css1/style.css') }}" rel="stylesheet">
+
+<script src="{{ asset('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js') }}"></script>
+<script src="{{ asset('https://oss.maxcdn.com/respond/1.4.2/respond.min.js') }}"></script>
+
+
+
+
 
 <!-- Wrapper -->
 <div id="wrapper">
@@ -23,225 +67,38 @@
     <header id="header-container">
 
         <!-- Header -->
-        <div id="header" class="not-sticky">
+        <div id="top-header">
             <div class="container">
+                <nav id="nav-menu-container">
+                    <ul class="nav-menu">
 
-                <!-- Left Side Content -->
-                <div class="left-side">
+                        <li class="menu-active"><a href="#hero">Home</a></li>
+                        <li><a href="http://127.0.0.1:8000/profile/">Profile</a></li>
 
-                    <!-- Logo -->
-                    <div id="logo">
-                        <a href="index.html"><img src="images/logo.png" alt=""></a>
-                    </div>
+                        <li> <a class="" href="http://127.0.0.1:8000/client/ven/afficherPTOUS" data-toggle=""> Vente</a>
 
-                    <!-- Mobile Navigation -->
-                    <div class="mmenu-trigger">
-                        <button class="hamburger hamburger--collapse" type="button">
-						<span class="hamburger-box">
-							<span class="hamburger-inner"></span>
-						</span>
-                        </button>
-                    </div>
+                        </li>
 
-                    <!-- Main Navigation -->
-                    <nav id="navigation" class="style-1">
-                        <ul id="responsive">
+                        <li> <a class="" href="{{ path('pi_dev_gestion_evenement_recherchelieu') }}" data-toggle=""> Evenement </a>
+                            <ul>
+                                <li><a href="http://127.0.0.1:8000/client/eve/AfficherEvent">Afficher les listes des evenements </a></li>
+                                <li><a href="http://127.0.0.1:8000/client/eve/AjouteEvent">Ajouter un evenement </a></li>
+                            </ul>
+                        </li>
 
-                            <li><a href="#">Home</a>
-                                <ul>
-                                    <li><a href="index.html">Home 1</a></li>
-                                    <li><a href="index-2.html">Home 2</a></li>
-                                    <li><a href="index-3.html">Home 3</a></li>
-                                    <li><a href="index-4.html">Home 4</a></li>
-                                </ul>
-                            </li>
+                        <li> <a class="" href="{{ path('findlieucat') }}" data-toggle=""> Publicité</a>
+                            <ul>
+                                <li><a href="{{ path('afficheoffre1') }}">Ajouter Publicité</a></li>
+                                <li><a href="{{ path('findlieucat') }}">Afficher Publicité</a></li>
+                            </ul></li>
+                        </li>
 
-                            <li><a class="current" href="#">Listings</a>
-                                <ul>
-                                    <li><a href="#">List Layout</a>
-                                        <ul>
-                                            <li><a href="listings-list-with-sidebar.html">With Sidebar</a></li>
-                                            <li><a href="listings-list-full-width.html">Full Width</a></li>
-                                            <li><a href="listings-list-full-width-with-map.html">Full Width + Map</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Grid Layout</a>
-                                        <ul>
-                                            <li><a href="listings-grid-with-sidebar-1.html">With Sidebar 1</a></li>
-                                            <li><a href="listings-grid-with-sidebar-2.html">With Sidebar 2</a></li>
-                                            <li><a href="listings-grid-full-width.html">Full Width</a></li>
-                                            <li><a href="listings-grid-full-width-with-map.html">Full Width + Map</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Half Screen Map</a>
-                                        <ul>
-                                            <li><a href="listings-half-screen-map-list.html">List Layout</a></li>
-                                            <li><a href="listings-half-screen-map-grid-1.html">Grid Layout 1</a></li>
-                                            <li><a href="listings-half-screen-map-grid-2.html">Grid Layout 2</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="listings-single-page.html">Single Listing</a></li>
-                                </ul>
-                            </li>
+                        <li><a href="{{ path('ajoutreclamation') }}">Réclamation</a></li>
+                        <li><a href="http://127.0.0.1:8000/logout">Se DeConnecter</a></li>
 
-                            <li><a href="#">User Panel</a>
-                                <ul>
-                                    <li><a href="dashboard.html">Dashboard</a></li>
-                                    <li><a href="dashboard-messages.html">Messages</a></li>
-                                    <li><a href="dashboard-bookings.html">Bookings</a></li>
-                                    <li><a href="dashboard-my-listings.html">My Listings</a></li>
-                                    <li><a href="dashboard-reviews.html">Reviews</a></li>
-                                    <li><a href="dashboard-bookmarks.html">Bookmarks</a></li>
-                                    <li><a href="dashboard-add-listing.html">Add Listing</a></li>
-                                    <li><a href="dashboard-my-profile.html">My Profile</a></li>
-                                    <li><a href="dashboard-invoice.html">Invoice</a></li>
-                                </ul>
-                            </li>
+                    </ul>
+                </nav><!-- #nav-menu-container -->
 
-                            <li><a href="#">Pages</a>
-                                <div class="mega-menu mobile-styles three-columns">
-
-                                    <div class="mega-menu-section">
-                                        <ul>
-                                            <li class="mega-menu-headline">Pages #1</li>
-                                            <li><a href="pages-user-profile.html"><i class="sl sl-icon-user"></i> User Profile</a></li>
-                                            <li><a href="pages-booking.html"><i class="sl sl-icon-check"></i> Booking Page</a></li>
-                                            <li><a href="pages-add-listing.html"><i class="sl sl-icon-plus"></i> Add Listing</a></li>
-                                            <li><a href="pages-blog.html"><i class="sl sl-icon-docs"></i> Blog</a></li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="mega-menu-section">
-                                        <ul>
-                                            <li class="mega-menu-headline">Pages #2</li>
-                                            <li><a href="pages-contact.html"><i class="sl sl-icon-envelope-open"></i> Contact</a></li>
-                                            <li><a href="pages-coming-soon.html"><i class="sl sl-icon-hourglass"></i> Coming Soon</a></li>
-                                            <li><a href="pages-404.html"><i class="sl sl-icon-close"></i> 404 Page</a></li>
-                                            <li><a href="pages-masonry-filtering.html"><i class="sl sl-icon-equalizer"></i> Masonry Filtering</a></li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="mega-menu-section">
-                                        <ul>
-                                            <li class="mega-menu-headline">Other</li>
-                                            <li><a href="pages-elements.html"><i class="sl sl-icon-settings"></i> Elements</a></li>
-                                            <li><a href="pages-pricing-tables.html"><i class="sl sl-icon-tag"></i> Pricing Tables</a></li>
-                                            <li><a href="pages-typography.html"><i class="sl sl-icon-pencil"></i> Typography</a></li>
-                                            <li><a href="pages-icons.html"><i class="sl sl-icon-diamond"></i> Icons</a></li>
-                                        </ul>
-                                    </div>
-
-                                </div>
-                            </li>
-
-                        </ul>
-                    </nav>
-                    <div class="clearfix"></div>
-                    <!-- Main Navigation / End -->
-
-                </div>
-                <!-- Left Side Content / End -->
-
-                <!-- Right Side Content / End -->
-                <div class="right-side">
-                    <div class="header-widget">
-                        <a href="#sign-in-dialog" class="sign-in popup-with-zoom-anim"><i class="sl sl-icon-login"></i> Sign In</a>
-                        <a href="dashboard-add-listing.html" class="button border with-icon">Add Listing <i class="sl sl-icon-plus"></i></a>
-                    </div>
-                </div>
-                <!-- Right Side Content / End -->
-
-                <!-- Sign In Popup -->
-                <div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
-
-                    <div class="small-dialog-header">
-                        <h3>Sign In</h3>
-                    </div>
-
-                    <!--Tabs -->
-                    <div class="sign-in-form style-1">
-
-                        <ul class="tabs-nav">
-                            <li class=""><a href="#tab1">Log In</a></li>
-                            <li><a href="#tab2">Register</a></li>
-                        </ul>
-
-                        <div class="tabs-container alt">
-
-                            <!-- Login -->
-                            <div class="tab-content" id="tab1" style="display: none;">
-                                <form method="post" class="login">
-
-                                    <p class="form-row form-row-wide">
-                                        <label for="username">Username:
-                                            <i class="im im-icon-Male"></i>
-                                            <input type="text" class="input-text" name="username" id="username" value="" />
-                                        </label>
-                                    </p>
-
-                                    <p class="form-row form-row-wide">
-                                        <label for="password">Password:
-                                            <i class="im im-icon-Lock-2"></i>
-                                            <input class="input-text" type="password" name="password" id="password"/>
-                                        </label>
-                                        <span class="lost_password">
-										<a href="#" >Lost Your Password?</a>
-									</span>
-                                    </p>
-
-                                    <div class="form-row">
-                                        <input type="submit" class="button border margin-top-5" name="login" value="Login" />
-                                        <div class="checkboxes margin-top-10">
-                                            <input id="remember-me" type="checkbox" name="check">
-                                            <label for="remember-me">Remember Me</label>
-                                        </div>
-                                    </div>
-
-                                </form>
-                            </div>
-
-                            <!-- Register -->
-                            <div class="tab-content" id="tab2" style="display: none;">
-
-                                <form method="post" class="register">
-
-                                    <p class="form-row form-row-wide">
-                                        <label for="username2">Username:
-                                            <i class="im im-icon-Male"></i>
-                                            <input type="text" class="input-text" name="username" id="username2" value="" />
-                                        </label>
-                                    </p>
-
-                                    <p class="form-row form-row-wide">
-                                        <label for="email2">Email Address:
-                                            <i class="im im-icon-Mail"></i>
-                                            <input type="text" class="input-text" name="email" id="email2" value="" />
-                                        </label>
-                                    </p>
-
-                                    <p class="form-row form-row-wide">
-                                        <label for="password1">Password:
-                                            <i class="im im-icon-Lock-2"></i>
-                                            <input class="input-text" type="password" name="password1" id="password1"/>
-                                        </label>
-                                    </p>
-
-                                    <p class="form-row form-row-wide">
-                                        <label for="password2">Repeat Password:
-                                            <i class="im im-icon-Lock-2"></i>
-                                            <input class="input-text" type="password" name="password2" id="password2"/>
-                                        </label>
-                                    </p>
-
-                                    <input type="submit" class="button border fw margin-top-10" name="register" value="Register" />
-
-                                </form>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <!-- Sign In Popup / End -->
 
             </div>
         </div>
@@ -251,47 +108,89 @@
     <div class="clearfix"></div>
     <!-- Header Container / End -->
 
-    {% for pub in pubs %}
-    <!-- Slider
+
+    <!-- Titlebar
     ================================================== -->
-    <div class="listing-slider mfp-gallery-container margin-bottom-0">
-        <img src="{{ asset('images/') }}{{ pub.nomimage }}" style="width: 1000px;height: 150px">
+    <div id="titlebar" class="gradient">
+        <div class="container">
+            <div class="row">
+
+            </div>
+        </div>
     </div>
 
 
-    <tr>
     <!-- Content
     ================================================== -->
-    <div class="container">
-        <div class="row sticky-wrapper">
+    <div class="clearfix"></div>
+    <link rel="stylesheet" href=" {{ asset ('css2/style.css') }}">
+    <link rel="stylesheet" href="{{ asset ('css2/colors/main.css') }}" id="colors">
+
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+
+        <div class="clearfix"></div>
+        <!-- Header Container / End -->
+
+        {% for pub in pubs %}
+
+        <div class="container">
+
+
+
             <div class="col-lg-8 col-md-8 padding-right-30">
 
                 <!-- Titlebar -->
                 <div id="titlebar" class="listing-titlebar">
                     <div class="listing-titlebar-title">
-                        <h2><td>{{ pub.nompublicite }}</td></h2>
+                        <h2>{{ pub.nompublicite }} <span class="listing-tag">{{ pub.categorie.nomcategorie }}</span></h2>
                         <span>
-						<a href="#listing-location" class="listing-address">
-							<i class="fa fa-map-marker"></i>
-						            <td>{{ pub.pays }}</td>
+                  <a href="#listing-location" class="listing-address">
+                     <i class="fa fa-map-marker"></i><td>{{ pub.pays }}</td>
             <td>{{ pub.region }}</td>
             <td>{{ pub.adresse }}</td>
-						</a>
-					</span>
+                  </a>
+               </span>
                         <div class="star-rating" data-rating="5">
-                            <div class="rating-counter"><a href="#listing-reviews">(31 reviews)</a></div>
+                            <div class="rating-counter"><a href="#listing-reviews"></a></div>
                         </div>
                     </div>
                 </div>
 
+                <div class="padding-right-30 margin-left-45">
+
+                    <img src="{{ asset('images/') }}{{ pub.nomimage }}" style="width: 500px;height: 250px">
+
+                    <br> <br>
+                </div>
+                <br> <br>
+
+                <div id="listing-nav" class="margin-left-5">
+
+                    <h2> <div class="margin-left-80" ><SPAN class="glyphicon glyphicon-thumbs-up BLUE"><a href="{{ path('likepublicite2',{'idpublicite':pub.idpublicite}) }}" >J'aime</a></SPAN>
+
+
+                            <SPAN class="margin-left-100  glyphicon glyphicon-thumbs-down  BLUE"><a href="{{ path('dislikepublicite2',{'idpublicite':pub.idpublicite}) }}" >Je n'aime pas </a></SPAN> </div></h2>
+
+
+
+                </div>
+                <span>
+                  <a href="#listing-location" class="listing-address">
+                     <i class="fa fa-map-marker"></i>
+                      {{ pub.nompublicite }}
+                  </a>
+               </span>
                 <!-- Listing Nav -->
                 <div id="listing-nav" class="listing-nav-container">
                     <ul class="listing-nav">
                         <li><a href="#listing-overview" class="active">Description</a></li>
                         <li><a href="#listing-pricing-list">Pricing</a></li>
                         <li><a href="#listing-location">Location</a></li>
-                        <li><a href="#listing-reviews">Reviews</a></li>
-                        <li><a href="#add-review">Add Review</a></li>
+                        <li><a href="#listing-reviews">Commentaire</a></li>
+                        <li><a href="#add-review">Ajouter Commentaire</a></li>
                     </ul>
                 </div>
 
@@ -301,16 +200,15 @@
                     <!-- Description -->
 
                     <p>
-                    <td>{{ pub.contenupublicte }}</td>      </p>
+                        {{ pub.contenupublicte }}
+                    </p>
+
+
+
 
                     <!-- Amenities -->
-                    <h3 class="listing-desc-headline">Amenities</h3>
-                    <ul class="listing-features checkboxes margin-top-0">
-                        {{ pub.lien }}
-                        <li>Wireless Internet</li>
-                        <li>Free parking on premises</li>
-                        <li>Free parking on street</li>
-                    </ul>
+
+
                 </div>
 
 
@@ -322,263 +220,73 @@
                         <div class="pricing-list-container">
 
                             <!-- Food List -->
-                            <h4>Burgers</h4>
-                            <ul>
-                                <li>
-                                    <h5>Classic Burger</h5>
-                                    <p>Beef, salad, mayonnaise, spicey relish, cheese</p>
-                                    <span>$6</span>
-                                </li>
-                                <li>
-                                    <h5>Cheddar Burger</h5>
-                                    <p>Cheddar cheese, lettuce, tomato, onion, dill pickles</p>
-                                    <span>$6</span>
-                                </li>
-                                <li>
-                                    <h5>Veggie Burger</h5>
-                                    <p>Panko crumbed and fried, grilled peppers and mushroom</p>
-                                    <span>$6</span>
-                                </li>
-                                <li>
-                                    <h5>Chicken Burger</h5>
-                                    <p>Cheese, chicken fillet, avocado, bacon, tomatoes, basil</p>
-                                    <span>$6</span>
-                                </li>
-                            </ul>
 
-                            <!-- Food List -->
-                            <h4>Drinks</h4>
-                            <ul>
-                                <li>
-                                    <h5>Frozen Shake</h5>
-                                    <span>$4</span>
-                                </li>
-                                <li>
-                                    <h5>Orange Juice</h5>
-                                    <span>$4</span>
-                                </li>
-                                <li>
-                                    <h5>Beer</h5>
-                                    <span>$4</span>
-                                </li>
-                                <li>
-                                    <h5>Water</h5>
-                                    <span>Free</span>
-                                </li>
-                            </ul>
+
 
                         </div>
                     </div>
-                    <a href="#" class="show-more-button" data-more-title="Show More" data-less-title="Show Less"><i class="fa fa-angle-down"></i></a>
-                </div>
-                <!-- Food Menu / End -->
-
-
-                <!-- Location -->
-                <div id="listing-location" class="listing-section">
-                    <h3 class="listing-desc-headline margin-top-60 margin-bottom-30">Location</h3>
-
-                    <div id="singleListingMap-container">
-                        <div id="singleListingMap" data-latitude="40.70437865245596" data-longitude="-73.98674011230469" data-map-icon="im im-icon-Hamburger"></div>
-                        <a href="#" id="streetView">Street View</a>
-                    </div>
-                </div>
-
-                <!-- Reviews -->
-                <div id="listing-reviews" class="listing-section">
-                    <h3 class="listing-desc-headline margin-top-75 margin-bottom-20">Reviews <span>(12)</span></h3>
-
-                    <div class="clearfix"></div>
-
-                    <!-- Reviews -->
-                    <section class="comments listing-reviews">
-
-                        <ul>
-                            <li>
-                                <div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
-                                <div class="comment-content"><div class="arrow-comment"></div>
-                                    <div class="comment-by">Kathy Brown<span class="date">June 2017</span>
-                                        <div class="star-rating" data-rating="5"></div>
-                                    </div>
-                                    <p>Morbi velit eros, sagittis in facilisis non, rhoncus et erat. Nam posuere tristique sem, eu ultricies tortor imperdiet vitae. Curabitur lacinia neque non metus</p>
-
-                                    <div class="review-images mfp-gallery-container">
-                                        <a href="images/review-image-01.jpg" class="mfp-gallery"><img src="images/review-image-01.jpg" alt=""></a>
-                                    </div>
-                                    <a href="#" class="rate-review"><i class="sl sl-icon-like"></i> Helpful Review <span>12</span></a>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /> </div>
-                                <div class="comment-content"><div class="arrow-comment"></div>
-                                    <div class="comment-by">John Doe<span class="date">May 2017</span>
-                                        <div class="star-rating" data-rating="4"></div>
-                                    </div>
-                                    <p>Commodo est luctus eget. Proin in nunc laoreet justo volutpat blandit enim. Sem felis, ullamcorper vel aliquam non, varius eget justo. Duis quis nunc tellus sollicitudin mauris.</p>
-                                    <a href="#" class="rate-review"><i class="sl sl-icon-like"></i> Helpful Review <span>2</span></a>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
-                                <div class="comment-content"><div class="arrow-comment"></div>
-                                    <div class="comment-by">Kathy Brown<span class="date">June 2017</span>
-                                        <div class="star-rating" data-rating="5"></div>
-                                    </div>
-                                    <p>Morbi velit eros, sagittis in facilisis non, rhoncus et erat. Nam posuere tristique sem, eu ultricies tortor imperdiet vitae. Curabitur lacinia neque non metus</p>
-
-                                    <div class="review-images mfp-gallery-container">
-                                        <a href="images/review-image-02.jpg" class="mfp-gallery"><img src="images/review-image-02.jpg" alt=""></a>
-                                        <a href="images/review-image-03.jpg" class="mfp-gallery"><img src="images/review-image-03.jpg" alt=""></a>
-                                    </div>
-                                    <a href="#" class="rate-review"><i class="sl sl-icon-like"></i> Helpful Review <span>4</span></a>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /> </div>
-                                <div class="comment-content"><div class="arrow-comment"></div>
-                                    <div class="comment-by">John Doe<span class="date">May 2017</span>
-                                        <div class="star-rating" data-rating="5"></div>
-                                    </div>
-                                    <p>Commodo est luctus eget. Proin in nunc laoreet justo volutpat blandit enim. Sem felis, ullamcorper vel aliquam non, varius eget justo. Duis quis nunc tellus sollicitudin mauris.</p>
-                                    <a href="#" class="rate-review"><i class="sl sl-icon-like"></i> Helpful Review</a>
-                                </div>
-
-                            </li>
-                        </ul>
-                    </section>
-
-                    <!-- Pagination -->
-                    <div class="clearfix"></div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <!-- Pagination -->
-                            <div class="pagination-container margin-top-30">
-                                <nav class="pagination">
-                                    <ul>
-                                        <li><a href="#" class="current-page">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#"><i class="sl sl-icon-arrow-right"></i></a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-                    <!-- Pagination / End -->
-                </div>
-
-
-                <!-- Add Review Box -->
-                <div id="add-review" class="add-review-box">
-
-                    <!-- Add Review -->
-                    <h3 class="listing-desc-headline margin-bottom-20">Add Review</h3>
-
-                    <span class="leave-rating-title">Your rating for this listing</span>
-
-                    <!-- Rating / Upload Button -->
-                    <div class="row">
-                        <div class="col-md-6">
-                            <!-- Leave Rating -->
-                            <div class="clearfix"></div>
-                            <div class="leave-rating margin-bottom-30">
-                                <input type="radio" name="rating" id="rating-1" value="1"/>
-                                <label for="rating-1" class="fa fa-star"></label>
-                                <input type="radio" name="rating" id="rating-2" value="2"/>
-                                <label for="rating-2" class="fa fa-star"></label>
-                                <input type="radio" name="rating" id="rating-3" value="3"/>
-                                <label for="rating-3" class="fa fa-star"></label>
-                                <input type="radio" name="rating" id="rating-4" value="4"/>
-                                <label for="rating-4" class="fa fa-star"></label>
-                                <input type="radio" name="rating" id="rating-5" value="5"/>
-                                <label for="rating-5" class="fa fa-star"></label>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <!-- Uplaod Photos -->
-                            <div class="add-review-photos margin-bottom-30">
-                                <div class="photoUpload">
-                                    <span><i class="sl sl-icon-arrow-up-circle"></i> Upload Photos</span>
-                                    <input type="file" class="upload" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Review Comment -->
-                    <form id="add-comment" class="add-comment">
-                        <fieldset>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Name:</label>
-                                    <input type="text" value=""/>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label>Email:</label>
-                                    <input type="text" value=""/>
-                                </div>
-                            </div>
-
-                            <div>
-                                <label>Review:</label>
-                                <textarea cols="40" rows="3"></textarea>
-                            </div>
-
-                        </fieldset>
-
-                        <button class="button">Submit Review</button>
-                        <div class="clearfix"></div>
-                    </form>
 
                 </div>
-                <!-- Add Review Box / End -->
-
-
             </div>
 
 
             <!-- Sidebar
             ================================================== -->
-            <div class="col-lg-4 col-md-4 margin-top-75 sticky">
+            <div class="col-lg-4 col-md-4 margin-top-10 sticky">
 
 
                 <!-- Verified Badge -->
-                <div class="verified-badge with-tip" data-tip-content="Listing has been verified and belongs the business owner or manager.">
-                    <a href="{{ path('profiterpublicite',{'idpublicite':pub.idpublicite}) }}">  <i class="sl sl-icon-check"></i> Profiter overview</a>
-                </div>
+
+
 
                 <!-- Book Now -->
                 <div class="boxed-widget booking-widget margin-top-35">
-                    <h3><i class="fa fa-calendar-check-o "></i> Point</h3>
-                    <div class="row with-forms  margin-top-0">
-
-                        <!-- Date Picker - docs: http://www.vasterad.com/docs/listeo/#!/date_picker -->
 
 
-                        <!-- Time Picker - docs: http://www.vasterad.com/docs/listeo/#!/time_picker -->
-                        <div class="col-lg-6 col-md-12">
-                            <input type="text" id="booking-time" value="{{ pub.point }}">
+                    <!-- progress button animation handled via custom.js -->
+                    <a href="{{ path('findlieucat') }}">Retour</a>                </div>
+                <!-- Book Now / End -->
+
+
+                    <div class="boxed-widget booking-widget margin-top-35">
+                        <h3><i class="fa fa-calendar-check-o "></i> Profiter cette publicite</h3>
+                        <div class="row with-forms  margin-top-0">
+
+                            <!-- Date Picker - docs: http://www.vasterad.com/docs/listeo/#!/date_picker -->
+                            <div class="col-lg-6 col-md-12">
+                                Prix
+                                <input type="text" id="booking-date" value={{ pub.prixproduit }}>
+                            </div>
+
+                            <!-- Time Picker - docs: http://www.vasterad.com/docs/listeo/#!/time_picker -->
+                            <div class="col-lg-6 col-md-12">
+
+                                Point <input type="text" id="booking-time" value= {{ pub.point }}>
+                            </div>
+
+                            <!-- Panel Dropdown -->
+                            <div class="col-lg-6 col-md-12">
+                                Réduction
+                                <input type="text" id="booking-ime" value= {{ pub.pourcentage }}>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+
+                                Prix avec remise <input type="text" id="booking-time" value= {{ pub.prixremise }}>
+                            </div>
+
+                            <!-- progress button animation handled via custom.js -->
+                            <a href="{{ path('profiterpublicite',{'idpublicite':pub.idpublicite}) }}" class="button book-now fullwidth margin-top-5">profiter</a>
+
                         </div>
-
-                        <!-- Panel Dropdown -->
-
+                        <div>
+                        </div>
                         <!-- Panel Dropdown / End -->
 
                     </div>
 
-                    <!-- progress button animation handled via custom.js -->
-                    <a href="pages-booking.html" class="button book-now fullwidth margin-top-5">Book Now</a>
-                </div>
+
+
                 <!-- Book Now / End -->
-
-
                 <!-- Opening Hours -->
                 <div class="boxed-widget opening-hours margin-top-35">
                     <div class="listing-badge now-open">Now Open</div>
@@ -597,61 +305,17 @@
 
 
                 <!-- Contact -->
-                <div class="boxed-widget margin-top-35">
-                    <div class="hosted-by-title">
-                        <h4><span>Hosted by</span> <a href="pages-user-profile.html">Tom Perrin</a></h4>
-                        <a href="pages-user-profile.html" class="hosted-by-avatar"><img src="images/dashboard-avatar.jpg" alt=""></a>
-                    </div>
-                    <ul class="listing-details-sidebar">
-                        <li><i class="sl sl-icon-phone"></i> (123) 123-456</li>
-                        <!-- <li><i class="sl sl-icon-globe"></i> <a href="#">http://example.com</a></li> -->
-                        <li><i class="fa fa-envelope-o"></i> <a href="#">tom@example.com</a></li>
-                    </ul>
-
-                    <ul class="listing-details-sidebar social-profiles">
-                        <li><a href="#" class="facebook-profile"><i class="fa fa-facebook-square"></i> Facebook</a></li>
-                        <li><a href="#" class="twitter-profile"><i class="fa fa-twitter"></i> Twitter</a></li>
-                        <!-- <li><a href="#" class="gplus-profile"><i class="fa fa-google-plus"></i> Google Plus</a></li> -->
-                    </ul>
-
-                    <!-- Reply to review popup -->
-                    <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
-                        <div class="small-dialog-header">
-                            <h3>Send Message</h3>
-                        </div>
-                        <div class="message-reply margin-top-0">
-                            <textarea cols="40" rows="3" placeholder="Your message to Tom"></textarea>
-                            <button class="button">Send Message</button>
-                        </div>
-                    </div>
-
-                    <a href="#small-dialog" class="send-message-to-owner button popup-with-zoom-anim"><i class="sl sl-icon-envelope-open"></i> Send Message</a>
-                </div>
                 <!-- Contact / End-->
-
-
+            </div>
+                {% endfor %}
                 <!-- Share / Like -->
-                <div class="listing-share margin-top-40 margin-bottom-40 no-border">
-                    <button class="like-button"><span class="like-icon"></span> Bookmark this listing</button>
-                    <span>159 people bookmarked this place</span>
-
-                    <!-- Share Buttons -->
-                    <ul class="share-buttons margin-top-40 margin-bottom-0">
-                        <li><a class="fb-share" href="#"><i class="fa fa-facebook"></i> Share</a></li>
-                        <li><a class="twitter-share" href="#"><i class="fa fa-twitter"></i> Tweet</a></li>
-                        <li><a class="gplus-share" href="#"><i class="fa fa-google-plus"></i> Share</a></li>
-                        <!-- <li><a class="pinterest-share" href="#"><i class="fa fa-pinterest-p"></i> Pin</a></li> -->
-                    </ul>
-                    <div class="clearfix"></div>
-                </div>
 
             </div>
             <!-- Sidebar / End -->
 
         </div>
+
     </div>
-    </tr>
-    {% endfor %}
 
 
     <!-- Footer
@@ -760,8 +424,8 @@
     this.$('#booking-time').timeDropper({
         setCurrentTime: false,
         meridians: true,
-        primaryColor: "#f91942",
-        borderColor: "#f91942",
+        primaryColor: "#4575f9",
+        borderColor: "#363af9",
         minutesInterval: '15'
     });
 
@@ -780,33 +444,164 @@
 ================================================== -->
 <script src="scripts/switcher.js"></script>
 
-<div id="style-switcher">
-    <h2>Color Switcher <a href="#"><i class="sl sl-icon-settings"></i></a></h2>
+<!-- DropZone | Documentation: http://dropzonejs.com -->
+<script type="text/javascript" src="scripts/dropzone.js"></script>
 
-    <div>
-        <ul class="colors" id="color1">
-            <li><a href="#" class="main" title="Main"></a></li>
-            <li><a href="#" class="blue" title="Blue"></a></li>
-            <li><a href="#" class="green" title="Green"></a></li>
-            <li><a href="#" class="orange" title="Orange"></a></li>
-            <li><a href="#" class="navy" title="Navy"></a></li>
-            <li><a href="#" class="yellow" title="Yellow"></a></li>
-            <li><a href="#" class="peach" title="Peach"></a></li>
-            <li><a href="#" class="beige" title="Beige"></a></li>
-            <li><a href="#" class="purple" title="Purple"></a></li>
-            <li><a href="#" class="celadon" title="Celadon"></a></li>
-            <li><a href="#" class="red" title="Red"></a></li>
-            <li><a href="#" class="brown" title="Brown"></a></li>
-            <li><a href="#" class="cherry" title="Cherry"></a></li>
-            <li><a href="#" class="cyan" title="Cyan"></a></li>
-            <li><a href="#" class="gray" title="Gray"></a></li>
-            <li><a href="#" class="olive" title="Olive"></a></li>
-        </ul>
-    </div>
 
-</div>
-<!-- Style Switcher / End -->
+<!-- Style Switcher
+================================================== -->
+<script src="scripts/switcher.js"></script>
+
 
 
 </body>
+
+<!-- FOOTER -->
+<footer id="footer">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="{{ asset('cssv/bootstrap.min.css') }}"/>
+    <!-- Slick -->
+    <link type="text/css" rel="stylesheet" href="{{ asset('cssv/slick.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ asset('cssv/slick-theme.css') }}"/>
+    <!-- nouislider -->
+    <link type="text/css" rel="stylesheet" href="{{ asset('cssv/nouislider.min.css') }}"/>
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="{{ asset('cssv/font-awesome.min.css') }}">
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="{{ asset('cssv/style.css') }}"/>
+    <link rel="shortcut icon" type="image/png" href="{{ asset('a.jpg') }}"/>
+    <!-- Stylesheets
+    ================================================= -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/ionicons.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" />
+
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/fav.png') }}"/>
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+
+
+    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet'">
+
+
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('css1/shop-homepage.css') }}" rel="stylesheet">
+    <link href="{{ asset('img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    <!-- GoogleFonts -->
+    <link href="{{ asset('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700') }}" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="{{ asset('lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="{{ asset('css1/style.css') }}" rel="stylesheet">
+
+    <script src="{{ asset('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js') }}"></script>
+    <script src="{{ asset('https://oss.maxcdn.com/respond/1.4.2/respond.min.js') }}"></script>
+
+
+
+
+    <!-- top footer -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-3 col-xs-6">
+                    <div class="footer">
+                        <h3 class="footer-title">About Us</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-xs-6">
+                    <div class="footer">
+                        <h3 class="footer-title">Categories</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Hot deals</a></li>
+                            <li><a href="#">Laptops</a></li>
+                            <li><a href="#">Smartphones</a></li>
+                            <li><a href="#">Cameras</a></li>
+                            <li><a href="#">Accessories</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="clearfix visible-xs"></div>
+
+                <div class="col-md-3 col-xs-6">
+                    <div class="footer">
+                        <h3 class="footer-title">Information</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Orders and Returns</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-xs-6">
+                    <div class="footer">
+                        <h3 class="footer-title">Service</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">View Cart</a></li>
+                            <li><a href="#">Wishlist</a></li>
+                            <li><a href="#">Track My Order</a></li>
+                            <li><a href="#">Help</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /top footer -->
+
+    <!-- bottom footer -->
+    <div id="bottom-footer" class="section">
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-lg-12 col-md-12 text-center">
+                    <ul class="footer-payments">
+                        <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+                        <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+                    </ul>
+                    <span class="copyright">
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                     </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/slick.min.js') }}"></script>
+<script src="{{ asset('js/nouislider.min.js') }}"></script>
+<script src="{{ asset('js/jquery.zoom.min.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
 </html>

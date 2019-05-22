@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Reclamation
  *
  * @ORM\Table(name="reclamation")
- * @ORM\Entity(repositoryClass="PiDev\GestionPublicite\PubliciteBundle\Repository\ReclamationRepository")
+ * @ORM\Entity(repositoryClass="PiDev\GestionReclamation\ReclamationBundle\Entity\ReclamationRepository")
  */
 class Reclamation
 {
@@ -41,6 +41,12 @@ class Reclamation
      * @ORM\Column(name="datereclam", type="date")
      */
     private $datereclam;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etatreclam", type="string", length=255)
+     */
+    private $etatreclam="non traité";
 
     /**
      * @ORM\ManyToOne(targetEntity="PiDev\GestionUser\FosBundle\Entity\User", inversedBy="evenements")
@@ -52,6 +58,8 @@ class Reclamation
      * @ORM\JoinColumn(referencedColumnName="idcategorie")
      */
     private $categorie;
+
+
 
     /**
      * @return int
@@ -176,5 +184,22 @@ class Reclamation
     {
         return $this->datereclam;
     }
+
+    /**
+     * @return string
+     */
+    public function getEtatreclam()
+    {
+        return $this->etatreclam;
+    }
+
+    /**
+     * @param string $etatreclam
+     */
+    public function setEtatreclam($etatreclam)
+    {
+        $this->etatreclam = $etatreclam;
+    }
+    
 }
 

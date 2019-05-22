@@ -1,0 +1,43 @@
+{{ render(controller('PiDevGestionEvenementEvenementBundle:Notification:display')) }}
+
+<script
+        src="{{ asset ('https://code.jquery.com/jquery-3.3.1.slim.min.js') }}"
+        integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        crossorigin="anonymous">
+
+</script>
+
+{# Call NotificationsBundles's assets #}
+{{ notifications_assets() }}
+<script>
+
+
+    $( document ).ready(function() {
+        setInterval(location.reload(), 10000);
+    });
+
+        /**
+         * After calling notifications_assets() "pusher" is now available
+         * and you can use it this way
+         */
+        // select the channel you want to listen to
+        var channel = pusher.subscribe("notifications");// notifications channel
+        channel.bind("my-event", function (data) {
+            console.log('from notifications channel', data);
+        });
+        var channel = pusher.subscribe("messages");// messages channel
+        channel.bind("my-event", function (data) {
+            console.log('from messages channel', data);
+            data.forEach(function (item) {
+                let li = `
+                 <li>
+                ` + item.title + `
+
+                 <a href="` + item.fullUrl + `">see</a>
+                  </li> `;
+                $('#notifications').append(li);
+            })
+        });
+
+
+</script>

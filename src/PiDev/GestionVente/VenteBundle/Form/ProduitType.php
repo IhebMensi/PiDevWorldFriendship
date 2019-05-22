@@ -21,10 +21,11 @@ class ProduitType extends AbstractType
         $builder->add('nomproduit',TextType::class)
             ->add('datemisevente',DateType::class)
             ->add('categorie',ChoiceType::class,array('choices' =>
-            array('immobilier' => 'immobilier' ,
-                'voiture' =>  'voiture',
+            array('Jeux Vidéo' => 'Jeux Vidéo' ,
+                'Musique' =>  'Musique',
                 'Pc' => 'Pc',
                 'Tel'=>'Tel')))
+            ->add('pays',TextType::class)
 ->add('file',FileType::class)
             ->add('prix')
             ->add('descriptionproduit',TextType::class)

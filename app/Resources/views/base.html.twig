@@ -45,6 +45,24 @@
         <link href="{{ asset('css1/style.css') }}" rel="stylesheet">
         <script src="{{ asset('js1/jquery-3.3.1.js') }}"></script>
 
+
+        <!-- Google font -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+        <!-- Bootstrap -->
+        <link type="text/css" rel="stylesheet" href="{{ asset('cssv/bootstrap.min.css') }}"/>
+        <!-- Slick -->
+        <link type="text/css" rel="stylesheet" href="{{ asset('cssv/slick.css') }}"/>
+        <link type="text/css" rel="stylesheet" href="{{ asset('cssv/slick-theme.css') }}"/>
+        <!-- nouislider -->
+        <link type="text/css" rel="stylesheet" href="{{ asset('cssv/nouislider.min.css') }}"/>
+        <!-- Font Awesome Icon -->
+        <link rel="stylesheet" href="{{ asset('cssv/font-awesome.min.css') }}">
+        <!-- Custom stlylesheet -->
+        <link type="text/css" rel="stylesheet" href="{{ asset('cssv/style.css') }}"/>
+
+        <script src="{{ asset('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js') }}"></script>
+        <script src="{{ asset('https://oss.maxcdn.com/respond/1.4.2/respond.min.js') }}"></script>
+        <![endif]-->
         <body>
         {% block header %}
             <div id="spinner-wrapper">
@@ -120,31 +138,49 @@
         <!--Header End-->
     {% endblock %}
 
+
+
+        {% block espaceModif %}
+        {% endblock %}
+
         {% block contenu %}
         {% endblock %}
+
         {% block register %}
         {% endblock %}
+
         {% block home %}
         {% endblock %}
-    {% block head %}
 
-    {% endblock %}
-        {% block headhome %}
-
+        {% block head %}
         {% endblock %}
-    {% block profile %}
-    {% endblock %}
-    {% block compte %}
-    {% endblock %}
-    {% block accueil %}
 
-    {% endblock %}
-    {% block modifc %}
-    {% endblock %}
-    {%  block Affichervente %}
-    {% endblock %}
-{% block monprofile %}
-{% endblock %}
+        {% block espaceProduit %}
+        {% endblock %}
+
+        {% block headhome %}
+        {% endblock %}
+
+        {% block profile %}
+        {% endblock %}
+
+        {% block compte %}
+        {% endblock %}
+
+        {% block accueil %}
+        {% endblock %}
+
+        {% block modifprod %}
+        {% endblock %}
+
+        {% block modifc %}
+        {% endblock %}
+
+        {%  block Affichervente %}
+        {% endblock %}
+
+        {% block monprofile %}
+        {% endblock %}
 
     {% block footer %}
         <!-- Footer

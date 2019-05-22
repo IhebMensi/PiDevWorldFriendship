@@ -1,6 +1,10 @@
+esprit_api:
+    resource: "@EspritApiBundle/Resources/config/routing.yml"
+    prefix:   /api
+
 pi_dev_gestion_categorie_categorie:
     resource: "@PiDevGestionCategorieCategorieBundle/Resources/config/routing.yml"
-    prefix:   /admin/cat
+    prefix:   /client/cat
 
 pi_dev_gestion_concours_concours:
     resource: "@PiDevGestionConcoursConcoursBundle/Resources/config/routing.yml"
@@ -12,7 +16,7 @@ pi_dev_gestion_vente_vente:
 
 pi_dev_gestion_publicite_publicite:
     resource: "@PiDevGestionPublicitePubliciteBundle/Resources/config/routing.yml"
-    prefix:   /client/pub
+    prefix:   /pub
 
 pi_dev_gestion_reclamation_reclamation:
     resource: "@PiDevGestionReclamationReclamationBundle/Resources/config/routing.yml"
@@ -20,7 +24,7 @@ pi_dev_gestion_reclamation_reclamation:
 
 pi_dev_gestion_evenement_evenement:
     resource: "@PiDevGestionEvenementEvenementBundle/Resources/config/routing.yml"
-    prefix:   /client/eve
+    prefix:   /eve
 
 pi_dev_gestion_publication_publication:
     resource: "@PiDevGestionPublicationPublicationBundle/Resources/config/routing.yml"
@@ -42,4 +46,10 @@ acceuil_coord:
 modif_c:
     path:     /Modification
     defaults: { _controller: PiDevGestionUserFosBundle:User:Modification }
+
+toiba_fullcalendar:
+    resource: "@FullCalendarBundle/Resources/config/routing.yaml"
+fos_message:
+    resource: "@FOSMessageBundle/Resources/config/routing.xml"
+    prefix:   /message
 

@@ -10,9 +10,111 @@ gestion_vente_Ajouter_produit1:
 gestion_vente_Afficher_produit:
     path:     /afficherP
     defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:AjouterAfficherProduit }
+gestion_vente_Afficher_TOUS_produit:
+    path:     /afficherPTOUS
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:AfficherProduit }
+gestion_vente_Afficher_rechercher_produit:
+    path:     /affrechP
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:RechercherProduit }
 gestion_vente_Supprimer_produit:
-    path:     /ann/{id}
+    path:     /ann/{idproduit}
     defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:SupprimerProduit }
 gestion_vente_Rechercher_produit:
     path:     /rechercherP
-    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:RechercherProduit }
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:RechercherProduit1 }
+gestion_vente_espace_produit:
+    path:     /espace/{idproduit}
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:EspaceProduit }
+gestion_vente_MesProd_produit:
+    path:     /Prod
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:AfficherMesProduits }
+gestion_vente_Modif_MesProd_produit:
+    path:     /ModifProd/{idproduit}
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:EspaceModificatio }
+gestion_vente_Modif_produit:
+    path:     /Modification/{idproduit}
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:ModifierMonProduit }
+gestion_vente_Aj_Nv_produit:
+    path:     /AjouterNvP
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:AjouterProduit }
+gestion_vente_Like_produit:
+    path:     /Likep/{idproduit}
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:LikeProduit }
+gestion_vente_DisLike_produit:
+    path:     /DisLikep/{idproduit}
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:DislikeProduit }
+gestion_vente_Paypal_produit:
+    path:     /paypal
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:Paypal }
+gestion_vente_com_produit:
+    path:     /com
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Commentaire:AjouterCommentaire }
+gestion_vente_produit:
+    path:     /n
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:test }
+gestion_vente_like_produit:
+    path:     /like
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:Like }
+gestion_vente_dislike_produit:
+    path:     /dislike
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:Dislike }
+gestion_vente_AFf_produit:
+    path:     /abc
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:abc }
+gestion_vente_Com_produit:
+    path:     /com
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Commentaire:AjouterCommentaire }
+gestion_vente_MCom_produit:
+    path:     /modif/{idcommentaire}
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Commentaire:ModifierCommentaire }
+gestion_vente_SCom_produit:
+    path:     /supp
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Commentaire:SupprimerCommentaire }
+gestion_vente_ADDP_produit:
+    path:     /aa
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:AddnewProduit }
+gestion_vente_Conf_produit:
+    path:     /conf/{idproduit)
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:Confirmation }
+gestion_vente_Range_produit:
+    path:     /range
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:Range }
+gestion_vente_Mail:
+    path:     /email
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Mail:Contact }
+gestion_vente_Signaler_produit:
+    path:     /a/{idproduit}
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:Signaler }
+gestion_vente_rechercheeee_produit:
+    path:     /gestion_vente_rechercheeee_produit
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:search }
+all:
+    path: /tasks/all
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:all }
+find_task:
+    path: /tasks/find/{id}
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:find }
+find_task_user:
+    path: /tasks/finduser/{id}
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:findByUser }
+delete_task_user:
+    path: /tasks/del/{id}
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:delete }
+update_task_user:
+    path: /tasks/upd/{id}
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:update }
+add_prd_fav:
+    path: /tasks/fav
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:addfavoris }
+all_prd_fav:
+    path: /tasks/allfav
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:getAllFavoris }
+del_prd_fav:
+    path: /tasks/delfav/{id}
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:deletefav }
+create_task:
+    path: /tasks/new
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:new }
+fav_task:
+    path: /tasks/fav/{id}
+    defaults: { _controller: PiDevGestionVenteVenteBundle:Produit:favbyid }

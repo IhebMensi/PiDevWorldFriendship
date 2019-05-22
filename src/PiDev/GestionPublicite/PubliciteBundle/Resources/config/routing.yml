@@ -7,27 +7,23 @@ ajoutpublicite:
 affichepublicite:
     path:     /affichepublicite
     defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:affiche }
+
+likepublicite2:
+    path:     /likepublicite
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:like }
+dislikepublicite2:
+    path:     /dislikepublicite
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:dislike }
+
 deletepublicite:
     path:     /deletepublicite
     defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:delete }
 updatepublicite:
     path:     /updatepublicite
-    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:update }
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:updatepublicite }
 recherchepublicite:
     path:     /recherchepublicite
     defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:recherche }
-ajoutlieu:
-    path:     /ajoutlieu
-    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Lieu:ajout }
-deletelieu:
-    path:     /deletelieu
-    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Lieu:delete }
-updatelieu:
-    path:     /updatelieu
-    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Lieu:updatelieu }
-affichelieu:
-    path:     /affichelieu
-    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Lieu:affiche }
 
 findcontenue:
     path:     /recherche1publicite
@@ -39,9 +35,40 @@ findcategorie:
     path:     /recherchecategorieDQL
     defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:recherchecategorieDQL }
 
+
+
 findlieu:
     path:     /recherchelieuDQL
     defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:recherchelieuDQL }
+
+affpubmo:
+    path:     /affpubmo
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:affichepubmo}
+
+
+lik11:
+    path:     /lik1/{id}/{idu}
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:lik}
+
+dislik11:
+    path:     /dislik1/{id}/{idu}
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:Dislik}
+pubaa:
+    path:     /mespu/{idu}
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:mespub }
+profite:
+    path:     /profite/{id}/{idu}
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:profiter1}
+findlieucat:
+    path:     /recherchelieucatDQL
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:recherchelieucat }
+accepter:
+    path:     /accepterpub
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:accepter }
+
+refuser:
+    path:     /refuserpub
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:refuser }
 ajoutoffre:
     path:     /ajoutoffre
     defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Offre:ajoutoffre }
@@ -57,7 +84,6 @@ afficheoffre:
 afficheoffre1:
     path:     /afficheoffre1
     defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Offre:afficheoffre1 }
-
 findcategorie1:
     path:     /recherchelieuDQL
     defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:recherchecategorieDQL }
@@ -74,4 +100,6 @@ Afficherprofituser:
     path:     /Afficherprofituser
     defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:Afficherprofituser }
 
-
+valider:
+    path:     /valider
+    defaults: { _controller: PiDevGestionPublicitePubliciteBundle:Publicite:valider }

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <title>Listeo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="{{ asset('css2/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('css2/colors/main.css" id="colors')}}">
+
+</head>
+
+<body>
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Header Container
+    ================================================== -->
+    <header id="header-container">
+
+        <!-- Header -->
+        <div id="header">
+            <div class="container">
+
+                <!-- Left Side Content -->
+                <div class="left-side">
+
+                    <!-- Logo -->
+                    <div id="logo">
+                        <a href="index.html"><img src="images/logo.png" alt=""></a>
+                    </div>
+
+                    <!-- Mobile Navigation -->
+                    <div class="mmenu-trigger">
+                        <button class="hamburger hamburger--collapse" type="button">
+						<span class="hamburger-box">
+							<span class="hamburger-inner"></span>
+						</span>
+                        </button>
+                    </div>
+
+
+                    <div class="clearfix"></div>
+                    <!-- Main Navigation / End -->
+
+                </div>
+                <!-- Left Side Content / End -->
+
+                <!-- Right Side Content / End -->
+
+
+                <!-- Sign In Popup -->
+
+
+            </div>
+        </div>
+        <!-- Header / End -->
+
+    </header>
+    <div class="clearfix"></div>
+    <!-- Header Container / End -->
+
+
+    <!-- Titlebar
+    ================================================== -->
+    <div id="titlebar" class="gradient">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <h2>Toutes les catégories</h2>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Content
+    ================================================== -->
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-9 col-md-8 padding-right-30">
+
+                <!-- Sorting / Layout Switcher -->
+                <div class="row margin-bottom-25">
+
+                    <div class="col-md-6 col-xs-6">
+                        <!-- Layout Switcher -->
+                        <div class="layout-switcher">
+                            <a href="#" class="grid active"><i class="fa fa-th"></i></a>
+                            <a href="listings-list-with-sidebar.html" class="list"><i class="fa fa-align-justify"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-xs-6">
+                        <!-- Sort by -->
+                        <div class="sort-by">
+                            <div class="sort-by-select">
+                                <select data-placeholder="Default order" class="chosen-select-no-single">
+                                    <option>Default Order</option>
+                                    <option>Highest Rated</option>
+                                    <option>Most Reviewed</option>
+                                    <option>Newest Listings</option>
+                                    <option>Oldest Listings</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sorting / Layout Switcher / End -->
+
+
+                <div class="row">
+
+                    {% for c in categorie %}
+                        <div class="col-lg-6 col-md-12">
+                            <div class="listing-item">
+                                <div class="listing-item-content">
+                                    <span class="tag">{{ c.nomcategorie }}</span>
+                                    <h3>{{ c.nbrabonnees }}<i class="verified-icon"></i></h3>
+                                    <a href="{{ path('suivre',{'id':c.idcategorie}  ) }}">Suivre</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    {% endfor %}
+
+
+
+                    <!-- Listing Item -->
+
+
+
+                </div>
+
+                <!-- Pagination -->
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Pagination -->
+                        <div class="pagination-container margin-top-20 margin-bottom-40">
+                            <nav class="pagination">
+                                <ul>
+                                    <li><a href="#" class="current-page">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#"><i class="sl sl-icon-arrow-right"></i></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pagination / End -->
+
+            </div>
+
+
+            <!-- Sidebar
+            ================================================== -->
+            <div class="col-lg-3 col-md-4">
+                <div class="sidebar">
+
+                    <!-- Widget -->
+                    <div class="widget margin-bottom-40">
+                        <h3 class="margin-top-0 margin-bottom-30">Filters</h3>
+
+                        <!-- Row -->
+                        <div class="row with-forms">
+                            <!-- Cities -->
+                            <div class="col-md-12">
+                                <input type="text" placeholder="What are you looking for?" value=""/>
+                            </div>
+                        </div>
+                        <!-- Row / End -->
+
+
+                        <!-- Row -->
+                        <div class="row with-forms">
+                            <!-- Type -->
+                            <div class="col-md-12">
+                                <select data-placeholder="All Categories" class="chosen-select" >
+                                    <option>All Categories</option>
+                                    <option>Shops</option>
+                                    <option>Hotels</option>
+                                    <option>Restaurants</option>
+                                    <option>Fitness</option>
+                                    <option>Events</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Row / End -->
+
+
+                        <!-- More Search Options / End -->
+
+                        <button class="button fullwidth margin-top-25">Update</button>
+
+                    </div>
+                    <!-- Widget / End -->
+
+                </div>
+            </div>
+            <!-- Sidebar / End -->
+        </div>
+    </div>
+
+
+    <!-- Footer
+    ================================================== -->
+    <div id="footer" class="margin-top-15">
+        <!-- Main -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-sm-6">
+                    <img class="footer-logo" src="images/logo.png" alt="">
+                    <br><br>
+                    <p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
+                </div>
+
+                <div class="col-md-4 col-sm-6 ">
+                    <h4>Helpful Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Sign Up</a></li>
+                        <li><a href="#">My Account</a></li>
+                        <li><a href="#">Add Listing</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Our Partners</a></li>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="col-md-3  col-sm-12">
+                    <h4>Contact Us</h4>
+                    <div class="text-widget">
+                        <span>12345 Little Lonsdale St, Melbourne</span> <br>
+                        Phone: <span>(123) 123-456 </span><br>
+                        E-Mail:<span> <a href="#">office@example.com</a> </span><br>
+                    </div>
+
+                    <ul class="social-icons margin-top-20">
+                        <li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
+                        <li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
+                        <li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li>
+                        <li><a class="vimeo" href="#"><i class="icon-vimeo"></i></a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copyrights">© 2017 Listeo. All Rights Reserved.</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- Footer / End -->
+
+
+    <!-- Back To Top Button -->
+    <div id="backtotop"><a href="#"></a></div>
+
+
+</div>
+<!-- Wrapper / End -->
+
+<!-- Scripts
+================================================== -->
+<script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="scripts/mmenu.min.js"></script>
+<script type="text/javascript" src="scripts/chosen.min.js"></script>
+<script type="text/javascript" src="scripts/slick.min.js"></script>
+<script type="text/javascript" src="scripts/rangeslider.min.js"></script>
+<script type="text/javascript" src="scripts/magnific-popup.min.js"></script>
+<script type="text/javascript" src="scripts/waypoints.min.js"></script>
+<script type="text/javascript" src="scripts/counterup.min.js"></script>
+<script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
+<script type="text/javascript" src="scripts/tooltips.min.js"></script>
+<script type="text/javascript" src="scripts/custom.js"></script>
+
+
+<!-- Style Switcher
+================================================== -->
+<script src="scripts/switcher.js"></script>
+
+<div id="style-switcher">
+    <h2>Color Switcher <a href="#"><i class="sl sl-icon-settings"></i></a></h2>
+
+    <div>
+        <ul class="colors" id="color1">
+            <li><a href="#" class="main" title="Main"></a></li>
+            <li><a href="#" class="blue" title="Blue"></a></li>
+            <li><a href="#" class="green" title="Green"></a></li>
+            <li><a href="#" class="orange" title="Orange"></a></li>
+            <li><a href="#" class="navy" title="Navy"></a></li>
+            <li><a href="#" class="yellow" title="Yellow"></a></li>
+            <li><a href="#" class="peach" title="Peach"></a></li>
+            <li><a href="#" class="beige" title="Beige"></a></li>
+            <li><a href="#" class="purple" title="Purple"></a></li>
+            <li><a href="#" class="celadon" title="Celadon"></a></li>
+            <li><a href="#" class="red" title="Red"></a></li>
+            <li><a href="#" class="brown" title="Brown"></a></li>
+            <li><a href="#" class="cherry" title="Cherry"></a></li>
+            <li><a href="#" class="cyan" title="Cyan"></a></li>
+            <li><a href="#" class="gray" title="Gray"></a></li>
+            <li><a href="#" class="olive" title="Olive"></a></li>
+        </ul>
+    </div>
+
+</div>
+<!-- Style Switcher / End -->
+
+
+</body>
+</html>

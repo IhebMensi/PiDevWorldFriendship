@@ -1,3 +1,38 @@
 pi_dev_gestion_categorie_categorie_homepage:
     path:     /
     defaults: { _controller: PiDevGestionCategorieCategorieBundle:Default:index }
+
+listCategorie:
+    path: /listCategorie
+    defaults: { _controller: PiDevGestionCategorieCategorieBundle:Categorie:listCategorie }
+
+addCategorie:
+    path: /addCategorie
+    defaults: { _controller: PiDevGestionCategorieCategorieBundle:Categorie:addCategorie }
+
+modifCategorie:
+    path: /modifCategorie
+    defaults: { _controller: PiDevGestionCategorieCategorieBundle:Categorie:modifCategorie }
+
+suppCategorie:
+    path: /suppCategorie
+    defaults: { _controller: PiDevGestionCategorieCategorieBundle:Categorie:suppCategorie }
+
+rechercheNom:
+    path: /rechercheNom
+    defaults: { _controller: PiDevGestionCategorieCategorieBundle:Categorie:recherchenomDQL }
+
+rechercheAjax:
+    path: /rechercheAjax
+    defaults: { _controller: PiDevGestionCategorieCategorieBundle:Categorie:search }
+stat:
+    path: /stat
+    defaults: { _controller: PiDevGestionCategorieCategorieBundle:Categorie:index }
+
+listCatF:
+    path: /listCatF
+    defaults: { _controller: PiDevGestionCategorieCategorieBundle:Categorie:listCatF }
+
+suivre:
+    path: /suivre
+    defaults: { _controller: PiDevGestionCategorieCategorieBundle:Interet:suivreCat }

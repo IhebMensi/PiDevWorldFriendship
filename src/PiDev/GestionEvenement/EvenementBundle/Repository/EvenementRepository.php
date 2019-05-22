@@ -26,6 +26,20 @@ class EvenementRepository extends \Doctrine\ORM\EntityRepository
         return $query->getQuery()->getResult();
     }
 
+    public function findBycal($idcal){
+        $query = $this->createQueryBuilder('m')
+            ->where('m.idcal = :param')
+            ->setParameter('param',$idcal);
+        return $query->getQuery()->getResult();
+    }
+
+
+    public function findnomeveParametre($nomevenement){
+        $query = $this->getEntityManager()
+            ->createQuery("SELECT p FROM PiDevGestionEvenementEvenementBundle:Evenement p where p.nomevenement =:nomevenement ORDER BY p.datedebut")
+            ->setParameter('nomevenement',$nomevenement);
+        return $query->getResult();
+    }
 
     public function findContenuParametre($nomevenement){
         $query = $this->getEntityManager()
@@ -33,9 +47,38 @@ class EvenementRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('nomevenement','%'.$nomevenement.'%');
         return $query->getResult();
     }
+    public function findLieuParametre($pays,$region,$nomcategorie)
+    {
+        $query=$this->getEntityManager()
+            ->createQuery("SELECT p FROM PiDevGestionEvenementEvenementBundle:Evenement p  JOIN  p.categorie m  
+where (m.nomcategorie =:nomcategorie AND  p.pays =:pays AND p.region =:region  ) OR (m.nomcategorie =:nomcategorie AND  p.pays =:pays   )
+ OR ( p.pays =:pays AND p.region =:region  ) 
+ 
+ 
 
 
+" )
+            ->setParameter('pays',$pays)->setParameter('region',$region)->setParameter('nomcategorie',$nomcategorie);
+
+        return $query->getResult();
+    }
+    public function findCategorieParametre($nomcategorie)
+    {
+        $query=$this->getEntityManager()
+            ->createQuery("SELECT p FROM PiDevGestionEvenementEvenementBundle:Evenement p  JOIN p.categorie m  where m.nomcategorie =:nomcategorie" )
+            ->setParameter('nomcategorie',$nomcategorie);
+
+        return $query->getResult();
+    }
 
 
+    public function findreParametre($user,$event,$reaction)
+    {
+        $query=$this->getEntityManager()
+            ->createQuery("SELECT p FROM PiDevGestionEvenementEvenementBundle:ReactionEvenement p   where p.user =:user AND p.event =:event AND p.reaction =:reaction" )
+            ->setParameter('user',$user)->setParameter('event',$event)->setParameter('reaction',$reaction);
+
+        return $query->getResult();
+    }
 
 }

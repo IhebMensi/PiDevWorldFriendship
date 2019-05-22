@@ -104,10 +104,21 @@
 
                                 <h5>descriptionreclam <i  class="tip" data-tip-content="Name of your business"></i></h5>
                                 {{ form_start(Form) }}
-                                {{ form_widget(Form.descriptionreclam, { 'attr': {'class': 'tip', 'placeholder':'entrer le nom evenement '} }) }}
+                                {{ form_widget(Form.descriptionreclam, { 'attr': {'class': 'tip', 'placeholder':'entrer le nom reclamation '} }) }}
 
 
                             </div>
+                            <div class="row with-forms">
+                                <div class="col-md-4">
+                                    <div class="row with-forms">
+
+                                        <h5>date reclamation  <i  class="tip1" data-tip-content="Name of your business"  ></i></h5>
+
+
+
+                                        {{ form_widget(Form.datereclam, { 'attr': {'class': 'form-control' } }) }}
+                                    </div>
+                                </div>
 
                             <div class="col-md-12">
                                 <h5>titrereclam  <i  class="tip1" data-tip-content="Name of your business"  ></i></h5>

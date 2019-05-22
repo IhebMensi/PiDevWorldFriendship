@@ -3,6 +3,8 @@
 namespace PiDev\GestionEvenement\EvenementBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use SBC\NotificationsBundle\Builder\NotificationBuilder;
+use SBC\NotificationsBundle\Model\NotifiableInterface;
 
 /**
  * TypeEvenement
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="type_evenement")
  * @ORM\Entity(repositoryClass="PiDev\GestionEvenement\EvenementBundle\Repository\TypeEvenementRepository")
  */
-class TypeEvenement
+class TypeEvenement implements NotifiableInterface
 {
     /**
      * @var int
@@ -81,5 +83,38 @@ class TypeEvenement
     {
         return $this->nomtype;
     }
+
+    public function notificationsOnCreate(NotificationBuilder $builder)
+    {
+        $notification = new Notification();
+        $notification
+            ->setTitle('New blog')
+            ->setDescription($this->getNomtype())
+            ->setRoute('pi_dev_gestion_evenement_AfficherType')
+            ->setParameters(array('id' => $this->getIdtype()))
+        ;
+        $builder->addNotification($notification);
+        return $builder;
+    }
+
+    public function notificationsOnUpdate(NotificationBuilder $builder)
+    {
+        $notification = new Notification();
+        $notification
+            ->setTitle('up blog')
+            ->setDescription($this->getNomtype())
+            ->setRoute('pi_dev_gestion_evenement_AfficherType')
+            ->setParameters(array('id' => $this->getIdtype()))
+        ;
+        $builder->addNotification($notification);
+        return $builder;
+    }
+
+    public function notificationsOnDelete(NotificationBuilder $builder)
+    {
+       return $builder;
+    }
+
+
 }
 

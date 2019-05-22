@@ -1,8 +1,21 @@
 pi_dev_gestion_evenement_evenement_homepage:
     path:     /
     defaults: { _controller: PiDevGestionEvenementEvenementBundle:Default:index }
-
-
+ajoutevmo:
+    path:     /neweeve
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:newe}
+stat:
+    path:     /stat
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:Stat27}
+stat1:
+    path:     /stat1
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:Stat1}
+stat2:
+    path:     /stat2
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:Stat13}
+stat3:
+    path:     /stat3
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:Stat6}
 pi_dev_gestion_evenement_Ajoute:
     path:     /AjouteEvent
     defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:Ajouter}
@@ -11,11 +24,17 @@ pi_dev_gestion_evenement_Afficher:
     path:     /AfficherEvent
     defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:AfficherEvent}
 
-
+pi_dev_gestion_evenement_Afficherdash:
+    path:     /AfficherEventdash
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:dash}
 
 pi_dev_gestion_evenement_Afficher1:
     path:     /AfficherEvent1/{idevenement}
     defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:AfficherEvent1}
+
+pi_dev_gestion_evenement_Afficher2:
+    path:     /AfficherEvent2/{idevenement}
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:AfficherEvent2}
 
 pi_dev_gestion_evenement_modifier:
     path:     /ModifierEvent
@@ -25,6 +44,10 @@ pi_dev_gestion_evenement_modifier:
 pi_dev_gestion_evenement_Supprimer:
     path:     /SupprimerEvent
     defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:supprimerEvent}
+
+pi_dev_gestion_evenement_Supprimer2:
+    path:     /SupprimerEvent2
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:supprimerEvent2}
 
 pi_dev_gestion_evenement_participer:
     path:     /ParticiperEvent
@@ -41,9 +64,45 @@ pi_dev_gestion_evenement_affparticiper:
 pi_dev_gestion_evenement_AfficherEventrealiser:
     path:     /Afficherrealiser
     defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:AfficherEventrealiser}
-
-
-
+pi_dev_par:
+    path:     /ze/participer/{id}/{idu}
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:ParticiperEventes}
+pi_dev_par1:
+    path:     /ze/participerall/{id}/{idu}
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:allpar}
+pi_dev_par2:
+    path:     /ze/AnnulerEventes/{id}/{idu}
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:AnnulerEventes}
+pi_dev_par3:
+    path:     /ze/likeEventes/{id}/{idu}
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:likeEventes}
+pi_dev_par6:
+    path:     /ze/affcom/{id}
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:AfficherEvent5}
+pi_dev_par4:
+    path:     /ze/dislikeEventes/{id}/{idu}
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:dislikeEventes}
+pi_dev_par7:
+    path:     /ze/finduser/{id}
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:finduserid}
+home_coord2:
+    path:     /mpp/{us}/{mp}
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:logine}
+home_coord3:
+    path:     /mpp1/{us}/{mp}
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:logine1}
+home_coord4:
+    path:     /meseve/{idu}
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:meseve}
+home_supp4:
+    path:     /suppeve/{id}
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:supprimerEve}
+home_update:
+    path:     /updateeve/{id}
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:updateEve}
+home_recherche:
+    path:     /rechercheeve/{nomevenement}
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:chercherEve}
 pi_dev_gestion_evenement_AjouteType:
     path:     /AjouteEventType
     defaults: { _controller: PiDevGestionEvenementEvenementBundle:TypeEvenement:AjouterType}
@@ -52,10 +111,23 @@ pi_dev_gestion_evenement_AfficherType:
     path:     /AfficherEventType
     defaults: { _controller: PiDevGestionEvenementEvenementBundle:TypeEvenement:AfficherTypeEvent}
 
+pi_dev_gestion_evenement_modifierType:
+    path:     /modifierEventType
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:TypeEvenement:modifierTypeEvent}
 
 pi_dev_gestion_evenement_SupprimerType:
     path:     /SupprimerEventType
     defaults: { _controller: PiDevGestionEvenementEvenementBundle:TypeEvenement:supprimerEventType}
+pi_dev_gestion_type:
+    path:     /afftypene
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:TypeEvenement:AfficherTypeEventmo}
+
+allevemobile1:
+    path:     /allevemobile1/{id}
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:findevemob}
+allevemobile:
+    path:     /allevemobile
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:allmo }
 
 pi_dev_gestion_evenement_findcontenue:
     path:     /recherche1Evenement
@@ -68,7 +140,9 @@ pi_dev_gestion_evenement_findcontenue1:
 pi_dev_gestion_evenement_Comment:
     path:     /AjouterComment2
     defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:AjouterComment }
-
+pi_dev_gestion_evenement_Comment111:
+    path:     /AjouterCommentmo
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:AjouterCommentmo }
 pi_dev_gestion_evenement_modifComment:
     path:     /modifComment2
     defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:modifComment }
@@ -76,3 +150,50 @@ pi_dev_gestion_evenement_modifComment:
 pi_dev_gestion_evenement_suppComment:
     path:     /suppComment2
     defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:suppComment }
+
+pi_dev_gestion_evenement_recherchelieu:
+    path:   /recherchelieu
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:recherchelieu }
+
+pi_dev_gestion_evenement_recherchecategorie:
+    path:   /recherchecategorieDQL
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:recherchecategorieDQL }
+
+
+likepublicite:
+    path:     /likepublicite
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:like }
+dislikeevent:
+    path:     /dislikeepublicite
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:dislikee }
+
+signaleve:
+    path:     /signaleve
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:signaleve}
+
+test:
+    path:     /teste
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:Test }
+
+
+calendarpublicite2:
+    path:     /calendarpublicite2
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Evenement:calendar }
+
+
+pi_dev_gestion_evenement_Ajoutecal:
+    path:     /AjouteCal
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Calendar:AjouterCal}
+
+pi_dev_gestion_evenement_modifiercal:
+    path:     /ModifierCal
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Calendar:modifierCal}
+
+pi_dev_gestion_evenement_AFFcal:
+    path:     /AFFCal/{idcal}
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Calendar:AFFCal}
+
+
+pi_dev_gestion_evenement_Supprimercal:
+    path:     /SupprimerCal
+    defaults: { _controller: PiDevGestionEvenementEvenementBundle:Calendar:supprimerCal}

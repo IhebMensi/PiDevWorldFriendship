@@ -2,6 +2,7 @@
 
 namespace PiDev\GestionReclamation\ReclamationBundle\Form;
 
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -17,9 +18,10 @@ class ReclamationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('descriptionreclam',TextType::class)
+        $builder->add('descriptionreclam',CKEditorType::class)
             ->add('titrereclam',TextType::class)
-          #  ->add('datereclam',DateType::class)
+           # ->add('etatreclam',TextType::class)
+           ->add('datereclam',DateType::class)
             #->add('userid')
             ->add('categorie',EntityType::class,array(
                 'class'=>'PiDevGestionCategorieCategorieBundle:Categorie',

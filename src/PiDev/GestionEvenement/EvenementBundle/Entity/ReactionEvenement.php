@@ -11,9 +11,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * Class CommentEvenement
- * @ORM\Table(name="Comment_Evenement")
- * @ORM\Entity(repositoryClass="PiDev\GestionEvenement\EvenementBundle\Repository\CommentEvenementRepository")
+ * Class reactionEvenement
+ * @ORM\Table(name="LikeEvenement")
+ * @ORM\Entity(repositoryClass="PiDev\GestionEvenement\EvenementBundle\Repository\EvenementRepository")
  */
 
 

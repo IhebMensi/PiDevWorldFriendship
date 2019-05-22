@@ -54,21 +54,5 @@ class LieuController extends Controller
         return $this->redirectToRoute('affichelieu');
 
     }
-    public function updatelieuAction(Request $request){
-        $id=$request->get('idlieu');
-        $em=$this->getDoctrine()->getManager();
-        $Lieu=$em->getRepository('PiDevGestionPublicitePubliciteBundle:Lieu')
-            ->find($id);
-        $form=$this->createForm(LieuType::class,$Lieu);
-        $form->handleRequest($request);
-        if($form->isSubmitted()&&$form->isValid()){
-            $em->persist($Lieu);
-            $em->flush();
-            return $this->redirectToRoute('affichelieu');
-        }
-        return $this->render('@PiDevGestionPublicitePublicite/Lieu/update.html.twig',
-            array(
-                "Form"=>$form->createView()
-            ));
-    }
+
 }

@@ -2,6 +2,7 @@
 
 namespace PiDev\GestionReclamation\ReclamationBundle\Form;
 
+use blackknight467\StarRatingBundle\Form\RatingType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -17,16 +18,15 @@ class FeedbackType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('note')
-            ->add('descriptionfeedback',TextType::class)
+        $builder->add('note', RatingType::class, [
+            //...
+            'stars' => 4,
+            //...
+        ]);
+           # ->add('descriptionfeedback',TextType::class);
             #->add('datefeedback',DateType::class)
             #->add('userid')
-            ->add('service',EntityType::class,array(
-                'class'=>'PiDevGestionReclamationReclamationBundle:Service',
-                'choice_label'=>'nomservice'
 
-            ))
-            ->add('Ajouter',SubmitType::class);
     }/**
      * {@inheritdoc}
      */

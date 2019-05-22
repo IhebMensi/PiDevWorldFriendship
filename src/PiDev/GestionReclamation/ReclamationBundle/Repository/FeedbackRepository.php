@@ -10,4 +10,10 @@ namespace PiDev\GestionReclamation\ReclamationBundle\Repository;
  */
 class FeedbackRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function calculmoyenne()
+    {
+        $query = $this->getEntityManager()->createQuery(
+            "select AVG(v.note) from PiDevGestionReclamationReclamationBundle:notesite v    ");
+        return  $query->getSingleScalarResult();
+    }
 }

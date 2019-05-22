@@ -10,4 +10,19 @@ namespace PiDev\GestionCategorie\CategorieBundle\Repository;
  */
 class CategorieRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findNom($nomcategorie){
+        $query = $this->getEntityManager()
+            ->createQuery("SELECT c FROM PiDevGestionCategorieCategorieBundle:Categorie c where c.nomcategorie LIKE :nomcategorie "  )
+            ->setParameter('nomcategorie','%'.$nomcategorie.'%');
+        return $query->getResult();
+
+    }
+    public function findByNom($p){
+
+        $query=$this->getEntityManager()
+            ->createQuery("SELECT m from PiDevGestionCategorieCategorieBundle:Categorie m where m.nomcategorie like :x")
+            ->setParameter('x','%'.$p.'%');
+        return $query->getResult();
+
+    }
 }

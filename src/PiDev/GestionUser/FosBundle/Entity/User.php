@@ -2,6 +2,7 @@
 // src/AppBundle/Entity/User.php
 
 namespace PiDev\GestionUser\FosBundle\Entity;
+use FOS\MessageBundle\Model\ParticipantInterface;
 use PiDev\GestionPublication\PublicationBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -12,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
  */
-class User extends BaseUser
+class User extends BaseUser implements ParticipantInterface
 {
     /**
      * @ORM\Id
@@ -23,7 +24,7 @@ class User extends BaseUser
 /**
 * @ORM\OneToMany(targetEntity="PiDev\GestionVente\VenteBundle\Entity\Produit", mappedBy="user")
 */
-    private $produits;
+ /**   private $produits;
     /**
      * @ORM\Column(type="string",length=255)
      */
@@ -55,73 +56,6 @@ class User extends BaseUser
      * @ORM\Column(type="date")
      */
     private $DatedeNaissance;
-
-
-    /**
-     * @ORM\OneToMany(targetEntity="PiDev\GestionEvenement\EvenementBundle\Entity\Evenement", mappedBy="user")
-     */
-    private $evenements;
-
-
-
-    /**
-     * @ORM\OneToMany(targetEntity="PiDev\GestionReclamation\ReclamationBundle\Entity\Reclamation", mappedBy="user")
-     */
-    private $reclamations;
-    /**
-     * @ORM\OneToMany(targetEntity="PiDev\GestionReclamation\ReclamationBundle\Entity\Feedback", mappedBy="user")
-     */
-    private $fedbacks;
-
-    /**
-     * @return mixed
-     */
-    public function getEvenements()
-    {
-        return $this->evenements;
-    }
-
-    /**
-     * @param mixed $evenements
-     */
-    public function setEvenements($evenements)
-    {
-        $this->evenements = $evenements;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getReclamations()
-    {
-        return $this->reclamations;
-    }
-
-    /**
-     * @param mixed $reclamations
-     */
-    public function setReclamations($reclamations)
-    {
-        $this->reclamations = $reclamations;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getFedbacks()
-    {
-        return $this->fedbacks;
-    }
-
-    /**
-     * @param mixed $fedbacks
-     */
-    public function setFedbacks($fedbacks)
-    {
-        $this->fedbacks = $fedbacks;
-    }
-
-
 
     /**
      * @return mixed
@@ -247,7 +181,7 @@ class User extends BaseUser
     /**
      * @return mixed
      */
-    public function getProduits()
+/**    public function getProduits()
     {
         return $this->produits;
     }
@@ -255,16 +189,16 @@ class User extends BaseUser
     /**
      * @param mixed $produits
      */
-    public function setProduits($produits)
+ /**   public function setProduits($produits)
     {
         $this->produits = $produits;
     }
-
+*/
 
 
     public function getWebPath()
     {
-        return null===$this->image ? null : $this->getUploadDir.'/'.$this->monimage;
+        //return null===$this->image ? null : $this->getUploadDir.'/'.$this->monimage;
     }
     public function getUploadRootDir()
     {
@@ -314,22 +248,6 @@ class User extends BaseUser
     public function setMonimage($monimage)
     {
         $this->monimage = $monimage;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getParevenements()
-    {
-        return $this->parevenements;
-    }
-
-    /**
-     * @param mixed $parevenements
-     */
-    public function setParevenements($parevenements)
-    {
-        $this->parevenements = $parevenements;
     }
 
 

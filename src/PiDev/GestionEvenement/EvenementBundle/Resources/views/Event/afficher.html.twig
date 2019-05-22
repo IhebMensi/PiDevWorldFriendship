@@ -1,20 +1,123 @@
 <!DOCTYPE html>
-<head>
 
+<body>
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+<!-- Bootstrap -->
+<link type="text/css" rel="stylesheet" href="{{ asset('cssv/bootstrap.min.css') }}"/>
+<!-- Slick -->
+<link type="text/css" rel="stylesheet" href="{{ asset('cssv/slick.css') }}"/>
+<link type="text/css" rel="stylesheet" href="{{ asset('cssv/slick-theme.css') }}"/>
+<!-- nouislider -->
+<link type="text/css" rel="stylesheet" href="{{ asset('cssv/nouislider.min.css') }}"/>
+<!-- Font Awesome Icon -->
+<link rel="stylesheet" href="{{ asset('cssv/font-awesome.min.css') }}">
+<!-- Custom stlylesheet -->
+<link type="text/css" rel="stylesheet" href="{{ asset('cssv/style.css') }}"/>
+<link rel="shortcut icon" type="image/png" href="{{ asset('a.jpg') }}"/>
+<!-- Stylesheets
+================================================= -->
+<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/ionicons.min.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" />
+
+<!--Google Font-->
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
+
+<!--Favicon-->
+<link rel="shortcut icon" type="image/png" href="{{ asset('images/fav.png') }}"/>
+
+<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+
+
+<link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet'">
+
+
+<!-- Custom styles for this template -->
+<link href="{{ asset('css1/shop-homepage.css') }}" rel="stylesheet">
+<link href="{{ asset('img/favicon.png') }}" rel="icon">
+<link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+<!-- GoogleFonts -->
+<link href="{{ asset('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700') }}" rel="stylesheet">
+<!-- Bootstrap CSS File -->
+<link href="{{ asset('lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+<!-- Libraries CSS Files -->
+<link href="{{ asset('lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+<link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
+<!-- Main Stylesheet File -->
+<link href="{{ asset('css1/style.css') }}" rel="stylesheet">
+
+<script src="{{ asset('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js') }}"></script>
+<script src="{{ asset('https://oss.maxcdn.com/respond/1.4.2/respond.min.js') }}"></script>
+
+
+
+
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Header Container
+    ================================================== -->
+    <header id="header-container">
+
+        <!-- Header -->
+        <div id="top-header">
+            <div class="container">
+                <nav id="nav-menu-container">
+                    <ul class="nav-menu">
+
+                        <li class="menu-active"><a href="#hero">Home</a></li>
+                        <li><a href="http://127.0.0.1:8000/profile/">Profile</a></li>
+
+                        <li> <a class="" href="http://127.0.0.1:8000/client/ven/afficherPTOUS" data-toggle=""> Vente</a>
+
+                        </li>
+
+                        <li> <a class="" href="http://127.0.0.1:8000/client/eve/AfficherEvent" data-toggle=""> Evenement </a>
+                            <ul>
+                                <li><a href="http://127.0.0.1:8000/client/eve/AfficherEvent">Afficher les listes des evenements </a></li>
+                                <li><a href="http://127.0.0.1:8000/client/eve/AjouteEvent">Ajouter un evenement </a></li>
+                            </ul>
+                        </li>
+
+                        <li> <a class="" href="http://127.0.0.1:8000/client/pub/affichepublicite" data-toggle=""> Récommendation</a>
+                            <ul>
+                                <li><a href="http://127.0.0.1:8000/client/pub/ajoutpublicite">Ajouter un produit</a></li>
+                                <li><a href="http://127.0.0.1:8000/client/pub/affichepublicite">Rechercher produit</a></li>
+                            </ul></li>
+                        </li>
+
+                        <li><a href="http://127.0.0.1:8000/logout">Se DeConnecter</a></li>
+                        <li><a href="http://127.0.0.1:8000/admin/dash">Admin</a></li>
+                    </ul>
+                </nav>
+
+
+
+            </div>
+        </div>
+        <!-- Header / End -->
+
+    </header>
+    <div class="clearfix"></div>
     <!-- Basic Page Needs
     ================================================== -->
-    <title>Listeo</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
 
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="{{ asset ('css2/style.css') }}">
-    <link rel="stylesheet" href="{{ asset ('css2/colors/main.css') }}" id="colors">
 
-</head>
+
+
 
 <body>
+<link rel="stylesheet" href="{{ asset ('css2/style.css') }}">
+<link rel="stylesheet" href="{{ asset ('css2/colors/main.css') }}" id="colors">
 
 <!-- Wrapper -->
 <div id="wrapper">
@@ -88,154 +191,7 @@
             <!-- Search Section / End -->
 
 
-            <div class="col-md-12">
 
-                <!-- Sorting - Filtering Section -->
-                <div class="row margin-bottom-25 margin-top-30">
-
-                    <div class="col-md-6">
-                        <!-- Layout Switcher -->
-                        <div class="layout-switcher">
-                            <a href="#" class="grid active"><i class="fa fa-th"></i></a>
-                            <a href="listings-list-full-width.html" class="list"><i class="fa fa-align-justify"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="fullwidth-filters">
-
-                            <!-- Panel Dropdown -->
-                            <div class="panel-dropdown wide float-right">
-                                <a href="#">More Filters</a>
-                                <div class="panel-dropdown-content checkboxes">
-
-                                    <!-- Checkboxes -->
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <input id="check-a" type="checkbox" name="check">
-                                            <label for="check-a">Elevator in building</label>
-
-                                            <input id="check-b" type="checkbox" name="check">
-                                            <label for="check-b">Friendly workspace</label>
-
-                                            <input id="check-c" type="checkbox" name="check">
-                                            <label for="check-c">Instant Book</label>
-
-                                            <input id="check-d" type="checkbox" name="check">
-                                            <label for="check-d">Wireless Internet</label>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <input id="check-e" type="checkbox" name="check" >
-                                            <label for="check-e">Free parking on premises</label>
-
-                                            <input id="check-f" type="checkbox" name="check" >
-                                            <label for="check-f">Free parking on street</label>
-
-                                            <input id="check-g" type="checkbox" name="check">
-                                            <label for="check-g">Smoking allowed</label>
-
-                                            <input id="check-h" type="checkbox" name="check">
-                                            <label for="check-h">Events</label>
-                                        </div>
-                                    </div>
-
-                                    <!-- Buttons -->
-                                    <div class="panel-buttons">
-                                        <button class="panel-cancel">Cancel</button>
-                                        <button class="panel-apply">Apply</button>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <!-- Panel Dropdown / End -->
-
-                            <!-- Panel Dropdown-->
-                            <div class="panel-dropdown float-right">
-                                <a href="#">Distance Radius</a>
-                                <div class="panel-dropdown-content">
-                                    <input class="distance-radius" type="range" min="1" max="100" step="1" value="50" data-title="Radius around selected destination">
-                                    <div class="panel-buttons">
-                                        <button class="panel-cancel">Disable</button>
-                                        <button class="panel-apply">Apply</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Panel Dropdown / End -->
-
-                            <!-- Sort by -->
-                            <div class="sort-by">
-                                <div class="sort-by-select">
-                                    <select data-placeholder="Default order" class="chosen-select-no-single">
-                                        <option>Default Order</option>
-                                        <option>Highest Rated</option>
-                                        <option>Most Reviewed</option>
-                                        <option>Newest Listings</option>
-                                        <option>Oldest Listings</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <!-- Sort by / End -->
-
-                        </div>
-                    </div>
-
-                </div>
-                <!-- Sorting - Filtering Section / End -->
-
-
-                <div class="row">
-                    {% for pub in events %}
-                    <!-- Listing Item -->
-                    <div class="col-lg-4 col-md-6">
-
-                        <a href="listings-single-page.html" class="listing-item-container compact">
-                            <div class="listing-item">
-                                <img src="{{ asset('images/') }}{{ pub.nomimage }}" style="width: 400px;height: 260px">
-
-                                <div class="listing-badge now-open">{{ pub.payment }}</div>
-
-                                <div class="listing-item-content">
-                                    <div >   <a href="{{ path('pi_dev_gestion_evenement_Afficher1',{'idevenement':pub.idevenement}) }}">Read more </a>
-                                    </div>
-                                    <h3>{{ pub.nomevenement }} <i class="verified-icon"></i></h3>
-                                    <span> {{ pub.categorie.nomcategorie }} </span>
-
-                                </div>
-                                <span class="like-icon"></span>
-                            </div>
-                        </a>
-                    </div>
-
-
-                    {% endfor %}
-
-
-                </div>
-
-                <!-- Pagination -->
-                <div class="clearfix"></div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <!-- Pagination -->
-                        <div class="pagination-container margin-top-20 margin-bottom-40">
-                            <nav class="pagination">
-                                <ul>
-                                    <li><a href="#" class="current-page">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#"><i class="sl sl-icon-arrow-right"></i></a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-                <!-- Pagination / End -->
-
-            </div>
-
-        </div>
-    </div>
 
 
     <!-- Footer
@@ -305,4 +261,154 @@
 
 
 </body>
+
+
+<!-- FOOTER -->
+<footer id="footer">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="{{ asset('cssv/bootstrap.min.css') }}"/>
+    <!-- Slick -->
+    <link type="text/css" rel="stylesheet" href="{{ asset('cssv/slick.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ asset('cssv/slick-theme.css') }}"/>
+    <!-- nouislider -->
+    <link type="text/css" rel="stylesheet" href="{{ asset('cssv/nouislider.min.css') }}"/>
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="{{ asset('cssv/font-awesome.min.css') }}">
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="{{ asset('cssv/style.css') }}"/>
+    <link rel="shortcut icon" type="image/png" href="{{ asset('a.jpg') }}"/>
+    <!-- Stylesheets
+    ================================================= -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/ionicons.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" />
+
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/fav.png') }}"/>
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+
+
+    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet'">
+
+
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('css1/shop-homepage.css') }}" rel="stylesheet">
+    <link href="{{ asset('img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    <!-- GoogleFonts -->
+    <link href="{{ asset('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700') }}" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="{{ asset('lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="{{ asset('css1/style.css') }}" rel="stylesheet">
+
+    <script src="{{ asset('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js') }}"></script>
+    <script src="{{ asset('https://oss.maxcdn.com/respond/1.4.2/respond.min.js') }}"></script>
+
+
+
+
+    <!-- top footer -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-3 col-xs-6">
+                    <div class="footer">
+                        <h3 class="footer-title">About Us</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-xs-6">
+                    <div class="footer">
+                        <h3 class="footer-title">Categories</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Hot deals</a></li>
+                            <li><a href="#">Laptops</a></li>
+                            <li><a href="#">Smartphones</a></li>
+                            <li><a href="#">Cameras</a></li>
+                            <li><a href="#">Accessories</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="clearfix visible-xs"></div>
+
+                <div class="col-md-3 col-xs-6">
+                    <div class="footer">
+                        <h3 class="footer-title">Information</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Orders and Returns</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-xs-6">
+                    <div class="footer">
+                        <h3 class="footer-title">Service</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">View Cart</a></li>
+                            <li><a href="#">Wishlist</a></li>
+                            <li><a href="#">Track My Order</a></li>
+                            <li><a href="#">Help</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /top footer -->
+
+    <!-- bottom footer -->
+    <div id="bottom-footer" class="section">
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-lg-12 col-md-12 text-center">
+                    <ul class="footer-payments">
+                        <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+                        <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+                        <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+                    </ul>
+                    <span class="copyright">
+								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+							</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/slick.min.js') }}"></script>
+<script src="{{ asset('js/nouislider.min.js') }}"></script>
+<script src="{{ asset('js/jquery.zoom.min.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
 </html>

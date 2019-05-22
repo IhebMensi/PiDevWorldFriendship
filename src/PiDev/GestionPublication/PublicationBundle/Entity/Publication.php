@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use PiDev\GestionUser\FosBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Publication
@@ -32,25 +33,33 @@ class Publication
     private $contenue;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="pj", type="string", length=255)
+     * @ORM\Column(type="string",length=255,nullable=true)
      */
-    private $pj;
+    public $nomimage;
 
+    /**
+     * @Assert\File(maxSize="5000k")
+     */
+    public $file;
     /**
      * @var int
      *
      * @ORM\Column(name="nbrvue", type="integer")
      */
-    private $nbrvue;
+    private $nbrvue=0;
 
     /**
      * @var int
      *
      * @ORM\Column(name="nbrlike", type="integer")
      */
-    private $nbrlike;
+    private $nbrlike=0;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nbrdislike", type="integer")
+     */
+    private $nbrdislike=0;
 
     /**
      * @var string
@@ -58,9 +67,14 @@ class Publication
      * @ORM\Column(name="titre", type="string", length=255)
      */
     private $titre;
+
     /**
-     * @var date
-     * @ORM\Column(type="date")
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datepublication", type="datetime")
+     *
+     * @Assert\Type("DateTime")
+     *
      */
 private $datepublication;
     /**
@@ -68,54 +82,46 @@ private $datepublication;
      *
      * @ORM\Column(name="visibilite", type="integer")
      */
-private $visibilite;
+private $visibilite=1;
     /**
-     * @ORM\ManyToOne(targetEntity="PiDev\GestionUser\FosBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="PiDev\GestionUser\FosBundle\Entity\User", inversedBy="evenements")
      * @ORM\JoinColumn(referencedColumnName="id")
      */
-private $userid;
+    private $user;
+
+
     /**
+     *
      * @ORM\ManyToOne(targetEntity="PiDev\GestionCategorie\CategorieBundle\Entity\Categorie")
      * @ORM\JoinColumn(referencedColumnName="idcategorie")
      */
     private $categorie;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nbrsignalisation", type="integer")
+     */
+    private $nbrsignalisation=0;
 
     /**
      * @return int
      */
-
-    public function getIdpublication()
+    public function getNbrsignalisation()
     {
-        return $this->idpublication;
+        return $this->nbrsignalisation;
     }
 
     /**
-     * @param int $idpublication
+     * @param int $nbrsignalisation
      */
-    public function setIdpublication($idpublication)
+    public function setNbrsignalisation($nbrsignalisation)
     {
-        $this->idpublication = $idpublication;
+        $this->nbrsignalisation = $nbrsignalisation;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getUserid()
-    {
-        return $this->userid;
-    }
+
 
     /**
-     * @param mixed $userid
-     */
-    public function setUserid($userid)
-    {
-        $this->userid = $userid;
-    }
-
-    /**
-     * Get id
-     *
      * @return int
      */
     public function getId()
@@ -124,22 +130,14 @@ private $userid;
     }
 
     /**
-     * Set contenue
-     *
-     * @param string $contenue
-     *
-     * @return Publication
+     * @param int $id
      */
-    public function setContenue($contenue)
+    public function setId($id)
     {
-        $this->contenue = $contenue;
-
-        return $this;
+        $this->id = $id;
     }
 
     /**
-     * Get contenue
-     *
      * @return string
      */
     public function getContenue()
@@ -148,46 +146,46 @@ private $userid;
     }
 
     /**
-     * Set pj
-     *
-     * @param string $pj
-     *
-     * @return Publication
+     * @param string $contenue
      */
-    public function setPj($pj)
+    public function setContenue($contenue)
     {
-        $this->pj = $pj;
-
-        return $this;
+        $this->contenue = $contenue;
     }
 
     /**
-     * Get pj
-     *
-     * @return string
+     * @return mixed
      */
-    public function getPj()
+    public function getNomimage()
     {
-        return $this->pj;
+        return $this->nomimage;
     }
 
     /**
-     * Set nbrvue
-     *
-     * @param integer $nbrvue
-     *
-     * @return Publication
+     * @param mixed $nomimage
      */
-    public function setNbrvue($nbrvue)
+    public function setNomimage($nomimage)
     {
-        $this->nbrvue = $nbrvue;
-
-        return $this;
+        $this->nomimage = $nomimage;
     }
 
     /**
-     * Get nbrvue
-     *
+     * @return mixed
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * @param mixed $file
+     */
+    public function setFile($file)
+    {
+        $this->file = $file;
+    }
+
+    /**
      * @return int
      */
     public function getNbrvue()
@@ -196,22 +194,14 @@ private $userid;
     }
 
     /**
-     * Set nbrlike
-     *
-     * @param integer $nbrlike
-     *
-     * @return Publication
+     * @param int $nbrvue
      */
-    public function setNbrlike($nbrlike)
+    public function setNbrvue($nbrvue)
     {
-        $this->nbrlike = $nbrlike;
-
-        return $this;
+        $this->nbrvue = $nbrvue;
     }
 
     /**
-     * Get nbrlike
-     *
      * @return int
      */
     public function getNbrlike()
@@ -220,22 +210,30 @@ private $userid;
     }
 
     /**
-     * Set titre
-     *
-     * @param string $titre
-     *
-     * @return Publication
+     * @param int $nbrlike
      */
-    public function setTitre($titre)
+    public function setNbrlike($nbrlike)
     {
-        $this->titre = $titre;
-
-        return $this;
+        $this->nbrlike = $nbrlike;
     }
 
     /**
-     * Get titre
-     *
+     * @return int
+     */
+    public function getNbrdislike()
+    {
+        return $this->nbrdislike;
+    }
+
+    /**
+     * @param int $nbrdislike
+     */
+    public function setNbrdislike($nbrdislike)
+    {
+        $this->nbrdislike = $nbrdislike;
+    }
+
+    /**
      * @return string
      */
     public function getTitre()
@@ -244,7 +242,15 @@ private $userid;
     }
 
     /**
-     * @return date
+     * @param string $titre
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+    }
+
+    /**
+     * @return \DateTime
      */
     public function getDatepublication()
     {
@@ -252,7 +258,7 @@ private $userid;
     }
 
     /**
-     * @param date $datepublication
+     * @param \DateTime $datepublication
      */
     public function setDatepublication($datepublication)
     {
@@ -278,6 +284,22 @@ private $userid;
     /**
      * @return mixed
      */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getCategorie()
     {
         return $this->categorie;
@@ -289,6 +311,36 @@ private $userid;
     public function setCategorie($categorie)
     {
         $this->categorie = $categorie;
+    }
+
+
+    public function getWebPath()
+    {
+        return null===$this->nomimage ? null : $this->getUploadDir().'/'.$this->nomimage;
+    }
+    public function getUploadRootDir()
+    {
+        return __DIR__.'/../../../../../web/'.$this->getUploadDir();
+
+    }
+
+    public function getUploadDir()
+    {
+        return 'images';
+    }
+
+    public function  uploadProfilePicture()
+    {
+        if (null === $this->file) {
+            return;
+        }
+        if(!$this->id){
+            $this->file->move($this->getUploadRootDir(), $this->file->getClientOriginalName());
+        }else{
+
+            $this->file->move($this->getUploadRootDir(), $this->file->getClientOriginalName());
+        }
+        $this->setNomimage($this->file->getClientOriginalName());
     }
 
 }

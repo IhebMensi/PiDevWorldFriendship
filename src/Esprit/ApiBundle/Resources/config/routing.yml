@@ -1,0 +1,104 @@
+esprit_api_homepage:
+    path:     /
+    defaults: { _controller: EspritApiBundle:Default:index }
+
+all:
+    path:     /tasks/all
+    defaults: { _controller: EspritApiBundle:Task:all }
+
+find_task:
+    path:     /tasks/find/{id}
+    defaults: { _controller: EspritApiBundle:Task:find}
+
+create_task:
+    path:     /tasks/new
+    defaults: { _controller: EspritApiBundle:Task:new}
+
+lik1:
+    path:     /pub/lik/{id}/{idu}
+    defaults: { _controller: EspritApiBundle:Publicite:lik }
+
+dislik1:
+    path:     /pub/dlik/{id}/{idu}
+    defaults: { _controller: EspritApiBundle:Publicite:dislik }
+
+prof:
+    path:     /pub/pro/{id}/{idu}
+    defaults: { _controller: EspritApiBundle:Publicite:pro }
+allpub:
+    path:     /pub/all
+    defaults: { _controller: EspritApiBundle:Publicite:affiche }
+
+create_pub:
+    path:     /pub/new
+    defaults: { _controller: EspritApiBundle:Publicite:new }
+
+find_pub:
+    path:     /pub/find/{id}
+    defaults: { _controller: EspritApiBundle:Publicite:find}
+
+supprimerpub:
+    path:     pub/supprimerPub/{id}
+    defaults: { _controller: EspritApiBundle:Publicite:supprimerPub }
+
+updatepub:
+    path:     pub/updatePub/{id}
+    defaults: { _controller: EspritApiBundle:Publicite:updatePub  }
+
+
+chercherpub:
+    path:     pub/chercher/{nompublicite}
+    defaults: { _controller: EspritApiBundle:Publicite:chercher }
+
+create_rec:
+    path:     /rec/new
+    defaults: { _controller: EspritApiBundle:Reclamation:new }
+
+create_feed:
+    path:     /feed/new
+    defaults: { _controller: EspritApiBundle:Feedback:new }
+
+web_service_homepage:
+    path:     /
+    defaults: { _controller: EspritApiBundle:Default:index }
+
+listCategorieApi:
+    path: /listCategorieApi
+    defaults: { _controller: EspritApiBundle:WebService:ListApi }
+
+rechercheNomApi:
+    path: /rechercheNomApi
+    defaults: { _controller: EspritApiBundle:WebService:RechercheCat }
+
+suivreApi:
+    path: /suivreApi
+    defaults: { _controller: EspritApiBundle:WebService:suivreCat }
+
+logineApi:
+    path: /logineApi
+    defaults: { _controller: EspritApiBundle:WebService:logine }
+
+ListIntApi:
+    path: /ListIntApi
+    defaults: { _controller: EspritApiBundle:WebService:ListInt }
+alleve:
+    path:     /eve/all
+    defaults: { _controller: EspritApiBundle:Evenement:all }
+
+allevemobile55:
+    path:     /allevemobile55
+    defaults: { _controller: EspritApiBundle:Evenement:allmo }
+create_eve:
+    path:     /eve/new
+    defaults: { _controller: EspritApiBundle:Evenement:new }
+create_eve1:
+    path:     /eve/ajout
+    defaults: { _controller: EspritApiBundle:Evenement:Ajouter }
+
+rech_eve1:
+    path:     /eve/recherche
+    defaults: { _controller: EspritApiBundle:Evenement:recherche }
+
+find_eve:
+    path:     /eve/find/{id}
+    defaults: { _controller: EspritApiBundle:Evenement:find}

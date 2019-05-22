@@ -10,4 +10,13 @@ namespace PiDev\GestionConcours\ConcoursBundle\Repository;
  */
 class ConcoursRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findDateDebut()
+    {
+        $query = $this->getEntityManager()
+            ->createQuery("SELECT c FROM PiDevGestionConcoursConcoursBundle:Concours c 
+                          where c.datedebut <= CURRENT_DATE()
+                          AND c.datefin >= CURRENT_DATE() "  );
+        return $query->getResult();
+
+    }
 }

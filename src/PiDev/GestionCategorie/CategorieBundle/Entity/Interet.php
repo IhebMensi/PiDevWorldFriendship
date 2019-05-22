@@ -44,5 +44,37 @@ class Interet
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getUserid()
+    {
+        return $this->userid;
+    }
+
+    /**
+     * @param mixed $userid
+     */
+    public function setUserid($userid)
+    {
+        $this->userid = $userid;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    /**
+     * @param mixed $categorie
+     */
+    public function setCategorie($categorie)
+    {
+        $this->categorie = $categorie;
+    }
 }
 

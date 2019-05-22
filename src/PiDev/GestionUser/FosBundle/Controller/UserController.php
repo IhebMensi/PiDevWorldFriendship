@@ -41,9 +41,8 @@ class UserController extends Controller
 
     public function Home1Action(Request $request)
     {
-        $user=$this->getUser();
-
-        return $this->render('@PiDevGestionUserFos/User/home1.html.twig');
+$autCheker= $this->container->get('security.authorization_checker');
+        return $this->render('@PiDevGestionUserFos/User/home1.html.twig',array("user"=>$autCheker));
 
     }
 
@@ -72,7 +71,40 @@ class UserController extends Controller
     {
         $var=$this->container->get('security.authorization_checker');
     }
+    public function AfficheradminAction()
+    {
+        $em= $this->getDoctrine()->getManager();
+        $prod=$em->getRepository("PiDevGestionVenteVenteBundle:Produit")->findAll();
 
+        return $this->render('@PiDevGestionUserFos/User/affichertous.html.twig',
+            array("EVE"=>$prod));
+    }
+    public function SupprimerProduitAction(Request $request)
+    {
+        $id=$request->get('idproduit');
+        $em=$em= $this->getDoctrine()->getManager();
+        $event=$em->getRepository("PiDevGestionVenteVenteBundle:Produit")->find($id);
+
+        $em->remove($event);
+        $em->flush();
+        return $this->redirectToRoute('admin_coord_vente');
+    }
+
+    public function AccepterAction(Request $request)
+    {
+        $id = $request->get('idproduit');
+        $em = $this->getDoctrine()->getManager();
+        $Pub = $em->getRepository('PiDevGestionVenteVenteBundle:Produit')
+            ->find($id);
+        $Pub->setEtat("oui");
+
+        $em= $this->getDoctrine()->getManager();
+
+        $em->persist($Pub);
+
+        $em->flush();
+        return $this->redirectToRoute('admin_coord_vente');
+    }
 
 
 }

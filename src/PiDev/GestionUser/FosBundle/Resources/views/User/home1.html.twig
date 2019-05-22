@@ -18,42 +18,46 @@
 
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
+
                     <li class="menu-active"><a href="#hero">Home</a></li>
                     <li><a href="http://127.0.0.1:8000/profile/">Profile</a></li>
-                    <li> <a class="" href="http://127.0.0.1:8000/client/ven/afficherP" data-toggle=""> Vente</a>
-                        <ul>
-                            <li><a href="http://127.0.0.1:8000/client/ven/ajouterP">Ajouter un produit</a></li>
-                            <li><a href="http://127.0.0.1:8000/client/ven/rechercherP">Rechercher produit</a></li>
 
-                        </ul></li>
-                    <li> <a class="" href="http://127.0.0.1:8000/client/eve/AfficherEvent" data-toggle=""> Evenement </a>
+                    <li> <a class="" href="http://127.0.0.1:8000/client/ven/afficherPTOUS" data-toggle=""> Vente</a>
+
+                    </li>
+
+                    <li> <a class="" href="{{ path('pi_dev_gestion_evenement_recherchelieu') }}" data-toggle=""> Evenement </a>
                         <ul>
                             <li><a href="http://127.0.0.1:8000/client/eve/AfficherEvent">Afficher les listes des evenements </a></li>
                             <li><a href="http://127.0.0.1:8000/client/eve/AjouteEvent">Ajouter un evenement </a></li>
-
-                        </ul></li>
-                    <li> <a class="" href="http://127.0.0.1:8000/client/pub/affichepublicite" data-toggle=""> Récommendation</a>
-                        <ul>
-                            <li><a href="http://127.0.0.1:8000/client/pub/ajoutpublicite">Ajouter un produit</a></li>
-                            <li><a href="http://127.0.0.1:8000/client/pub/affichepublicite">Rechercher produit</a></li>
-
-                        </ul></li>
-
-
+                        </ul>
                     </li>
+
+                    <li> <a class="" href="{{ path('findlieucat') }}" data-toggle=""> Publicité</a>
+                        <ul>
+                            <li><a href="{{ path('afficheoffre1') }}">Ajouter Publicité</a></li>
+                            <li><a href="{{ path('findlieucat') }}">Afficher Publicité</a></li>
+                        </ul></li>
+                    </li>
+
+                    <li><a href="{{ path('ajoutreclamation') }}">Réclamation</a></li>
                     <li><a href="http://127.0.0.1:8000/logout">Se DeConnecter</a></li>
+                    {% if user.isGranted('ROLE_ADMIN') %} }}
                     <li><a href="http://127.0.0.1:8000/admin/dash">Admin</a></li>
-
-
+                    {% endif %} }}
                 </ul>
             </nav><!-- #nav-menu-container -->
+
         </div>
     </header>
     {% endblock %}
 {% block home %}
 <section id="hero">
     <div class="hero-container">
-        <h1>Welcome to World Friendship</h1>
+        <h1>Welcome to World Friendship             {% block fos_user_content %}
+
+            {% endblock fos_user_content %}
+         </h1>
         <h2>Share your smile with the world. It's a symbol of friendship and peace</h2>
         
     </div>
@@ -106,7 +110,7 @@
     <section id="facts">
         <div class="container wow fadeIn">
             <div class="section-header">
-                <h3 class="section-title">Facts</h3>
+                <h2 class="section-title"> <a href="{{ path('ajoute1Action') }}">Donner Votre Avis</a></h2>
                 <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
             </div>
             <div class="row counters">

@@ -1,0 +1,50 @@
+<td><a href="{{ path('pi_dev_gestion_evenement_Ajoutecal') }}">Supprimer</a></td>
+{% block body %}
+
+
+    {% include '@FullCalendar/Calendar/calendar.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/locale-all.js"></script>
+
+    <script type="text/javascript">
+
+       $(document).ready(function () {
+
+           $('#calendar-holder').fullCalendar({
+
+   events:[
+       {% for pub in pubs %}
+       {
+           id:"{{ pub.idevenement }}",
+       title:"  {{ pub.nomevenement }}" ,
+       start: "{{ pub.datedebut |date('Y-m-d')}}",
+           end:"{{ pub.datefin|date('Y-m-d')}}"
+       },
+       {% endfor %}
+
+       {% for cal in cals %}
+       {
+           id:"{{ cal.idcal }}",
+           title:"  {{ cal.nomcal }}" ,
+           start: "{{ cal.datecald |date('Y-m-d')}}",
+           end:"{{ cal.datecalf|date('Y-m-d')}}",
+           url:"{{ path('pi_dev_gestion_evenement_AFFcal',{'idcal':cal.idcal} )  }}",
+           color: "red"
+       },
+       {% endfor %}
+       ]
+
+           });
+
+        });
+    </script>
+{% endblock %}

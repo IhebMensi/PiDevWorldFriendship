@@ -4,7 +4,7 @@ namespace PiDev\GestionConcours\ConcoursBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use PiDev\GestionUser\FosBundle\Entity;
-
+use Symfony\Component\Validator\Constraints as Assert;
 use FOS\UserBundle\Model\User as BaseUser;
 
 /**
@@ -35,6 +35,8 @@ class Concours
      * @var \DateTime
      *
      * @ORM\Column(name="datedebut", type="date")
+     * @Assert\Type("DateTime")
+     * @Assert\GreaterThan("Today")
      */
     private $datedebut;
 
@@ -42,6 +44,9 @@ class Concours
      * @var \DateTime
      *
      * @ORM\Column(name="datefin", type="date")
+     * @Assert\Type("DateTime")
+     * @Assert\Expression("value >= this.getDatedebut() ")
+
      */
     private $datefin;
     /**

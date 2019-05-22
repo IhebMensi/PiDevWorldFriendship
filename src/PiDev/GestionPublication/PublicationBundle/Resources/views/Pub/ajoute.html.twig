@@ -1,0 +1,344 @@
+{% extends "base.html.twig" %}
+
+{% block accueil %}
+<div id="page-contents">
+    <div class="container">
+        <div class="row">
+
+            <!-- Newsfeed Common Side Bar Left
+            ================================================= -->
+            <div class="col-md-3 static">
+                <div class="profile-card">
+                    <img src="http://placehold.it/300x300" alt="user" class="profile-photo" />
+                    <h5><a href="http://127.0.0.1:8000/profile/" class="text-white">
+                            aaaaaaa
+                        </a></h5>
+                    <a href="#" class="text-white"><i class="ion ion-android-person-add"></i> 1,299 followers</a>
+                </div><!--profile card ends-->
+                <ul class="nav-news-feed">
+
+                    <li> <div class="dropdown">
+
+                            <!--a-- class="" href="http://127.0.0.1:8000/client/ven/Prod" data-toggle="">
+                                <span class="glyphicon glyphicon-user"></span> Mon Espace
+                            </a-->
+                            <a class="" href="http://127.0.0.1:8000/client/ven/AjouterNvP" data-toggle=""> <span class="glyphicon glyphicon-user"></span> Mon Espace</a>
+
+                            <div class="dropdown-menu">
+
+
+                            </div>
+                        </div>
+                    </li>
+                    <li><i class="icon ion-ios-people"></i><div><a href="newsfeed-people-nearby.html">People Nearby</a></div></li>
+                    <li><i class="icon ion-ios-people-outline"></i><div><a href="newsfeed-friends.html">Friends</a></div></li>
+                    <li><i class="icon ion-chatboxes"></i><div><a href="newsfeed-messages.html">Messages</a></div></li>
+                    <li><i class="icon ion-images"></i><div><a href="newsfeed-images.html">Images</a></div></li>
+                    <li><i class="icon ion-ios-videocam"></i><div><a href="newsfeed-videos.html">Videos</a></div></li>
+                </ul><!--news-feed links ends-->
+                <div id="chat-block">
+                    <div class="title">Chat online</div>
+                    <ul class="online-users list-inline">
+                        <li><a href="newsfeed-messages.html" title="Linda Lohan"><img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+                        <li><a href="newsfeed-messages.html" title="Sophia Lee"><img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+                        <li><a href="newsfeed-messages.html" title="John Doe"><img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+                        <li><a href="newsfeed-messages.html" title="Alexis Clark"><img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+                        <li><a href="newsfeed-messages.html" title="James Carter"><img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+                        <li><a href="newsfeed-messages.html" title="Robert Cook"><img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+                        <li><a href="newsfeed-messages.html" title="Richard Bell"><img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+                        <li><a href="newsfeed-messages.html" title="Anna Young"><img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+                        <li><a href="newsfeed-messages.html" title="Julia Cox"><img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+                    </ul>
+                </div><!--chat block ends-->
+            </div>
+
+            <div class="col-md-7">
+
+                <!-- Post Create Box
+                ================================================= -->
+                <div class="create-post">
+                    <div class="row">
+
+                        {{ form_start(Form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+                        <fieldset class="form-group">
+                            {{ form_widget(Form.titre, {'attr': {'class': 'form-control'} }) }}
+                        </fieldset>
+                        <fieldset class="form-group">
+                            {{ form_widget(Form.contenue, {'attr': {'class': 'form-control'} }) }}
+                        </fieldset>
+                        <fieldset class="form-group">
+                            {{ form_widget(Form.file, {'attr': {'class': 'form-control'} }) }}
+                        </fieldset>
+                        <fieldset class="form-group">
+                            {{ form_widget(Form.categorie, {'attr': {'class': 'form-control'} }) }}
+                        </fieldset>
+                        <fieldset class="form-group">
+                            {{ form_widget(Form.visibilite, {'attr': {'placeholder': 'Your Pic'} }) }}
+                        </fieldset>
+
+
+                        <div>
+                            <fieldset class="form-group">
+                                {{ form_widget(Form.Valider, {'attr': {'class': 'btn btn-primary pull-right'} }) }}
+                            </fieldset>
+                        </div>
+                        {{ form_end(Form) }}
+                        </div>
+                    </div>
+
+            <!-- Post Create Box End-->
+
+                <!-- Post Content
+                ================================================= -->
+                {% for result in publication %}
+                <div class="post-content">
+                    <a href="{{ path('pi_dev_SupprimerPub',{'id':result.id} ) }}" class="button book-now fullwidth margin-top-5">Supprimer</a>
+                    <a href="{{ path('pi_dev_SignalerPub',{'id':result.id} ) }}" class="button book-now fullwidth margin-top-5">Signaler</a>
+                    <img s src="{{ asset('images/') }}{{ result.nomimage }}" alt="post-image" class="img-responsive post-image" />
+                    <div class="post-container">
+                        <img src="http://placehold.it/300x300" alt="user" class="profile-photo-md pull-left" />
+                        <div class="post-detail">
+                            <div class="user-info">
+                                <h5><a href="timeline.html" class="profile-link">aaaaaa</a> <span class="following">following</span></h5>
+                                <p class="text-muted">{{ result.datepublication |date('Y-m-d') }}</p>
+                            </div>
+                            <div class="reaction">
+                                dislikepublicite
+                                <a href="{{ path('likepublicite1',{'id':result.id} ) }}" class="btn text-green"><i class="icon ion-thumbsup" ></i> {{ result.nbrlike }}</a>
+                                <a href="{{ path('dislikepublicite',{'id':result.id} ) }}"class="btn text-red"><i class="fa fa-thumbs-down"></i>{{ result.nbrdislike }}</a>
+                            </div>
+                            <div class="line-divider"></div>
+                            <div class="post-text">
+                                <p>{{ result.contenue }}. <i class="em em-anguished"></i> <i class="em em-anguished"></i> <i class="em em-anguished"></i></p>
+                            </div>
+                            <div class="line-divider"></div>
+
+                            <div class="post-comment">
+                                <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm" />
+                                <p><a href="timeline.html" class="profile-link">John</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p>
+                            </div>
+                            <div class="post-comment">
+                                <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm" />
+                                <input type="text" class="form-control" placeholder="Post a comment">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <!-- Newsfeed Common Side Bar Right
+                ================================================= -->
+                <div class="col-md-2 static">
+                    <div class="suggestions" id="sticky-sidebar">
+                        <h4 class="grey">Who to Follow</h4>
+                        <div class="follow-user">
+                            <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left" />
+                            <div>
+                                <h5><a href="timeline.html">Diana Amber</a></h5>
+                                <a href="#" class="text-green">Add friend</a>
+                            </div>
+                        </div>
+                        <div class="follow-user">
+                            <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left" />
+                            <div>
+                                <h5><a href="timeline.html">Cris Haris</a></h5>
+                                <a href="#" class="text-green">Add friend</a>
+                            </div>
+                        </div>
+                        <div class="follow-user">
+                            <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left" />
+                            <div>
+                                <h5><a href="timeline.html">Brian Walton</a></h5>
+                                <a href="#" class="text-green">Add friend</a>
+                            </div>
+                        </div>
+                        <div class="follow-user">
+                            <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left" />
+                            <div>
+                                <h5><a href="timeline.html">Olivia Steward</a></h5>
+                                <a href="#" class="text-green">Add friend</a>
+                            </div>
+                        </div>
+                        <div class="follow-user">
+                            <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left" />
+                            <div>
+                                <h5><a href="timeline.html">Sophia Page</a></h5>
+                                <a href="#" class="text-green">Add friend</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section id="features">
+                    <div class="container wrapper">
+                        <h1 class="section-title slideDown">social herd</h1>
+                        <div class="row slideUp">
+                            <div class="feature-item col-md-2 col-sm-6 col-xs-6 col-md-offset-2">
+                                <div class="feature-icon"><i class="icon ion-person-add"></i></div>
+                                <h3>Make Friends</h3>
+                            </div>
+                            <div class="feature-item col-md-2 col-sm-6 col-xs-6">
+                                <div class="feature-icon"><i class="icon ion-images"></i></div>
+                                <h3>Publish Posts</h3>
+                            </div>
+                            <div class="feature-item col-md-2 col-sm-6 col-xs-6">
+                                <div class="feature-icon"><i class="icon ion-chatbox-working"></i></div>
+                                <h3>Private Chats</h3>
+                            </div>
+                            <div class="feature-item col-md-2 col-sm-6 col-xs-6">
+                                <div class="feature-icon"><i class="icon ion-compose"></i></div>
+                                <h3>Create Polls</h3>
+                            </div>
+                        </div>
+                        <h2 class="sub-title">find awesome people like you</h2>
+                        <div id="incremental-counter" data-value="101242"></div>
+                        <p>People Already Signed Up</p>
+                        <img src="images/face-map.png" alt="" class="img-responsive face-map slideUp hidden-sm hidden-xs" />
+                    </div>
+
+                </section>
+
+                <!-- Download Section
+                ================================================= -->
+                <section id="app-download">
+                    <div class="container wrapper">
+                        <h1 class="section-title slideDown">download</h1>
+                        <ul class="app-btn list-inline slideUp">
+                            <li><button class="btn-secondary"><img src="images/app-store.png" alt="App Store" /></button></li>
+                            <li><button class="btn-secondary"><img src="images/google-play.png" alt="Google Play" /></button></li>
+                        </ul>
+                        <h2 class="sub-title">stay connected anytime, anywhere</h2>
+                        <img src="http://placehold.it/800x190" alt="iPhone" class="img-responsive" />
+                    </div>
+                </section>
+
+                <!-- Image Divider
+                ================================================= -->
+                <div class="img-divider hidden-sm hidden-xs"></div>
+
+                <!-- Facts Section
+                ================================================= -->
+                <section id="site-facts">
+                    <div class="container wrapper">
+                        <div class="circle">
+                            <ul class="facts-list">
+                                <li>
+                                    <div class="fact-icon"><i class="icon ion-ios-people-outline"></i></div>
+                                    <h3 class="text-white">1,01,242</h3>
+                                    <p>People registered</p>
+                                </li>
+                                <li>
+                                    <div class="fact-icon"><i class="icon ion-images"></i></div>
+                                    <h3 class="text-white">21,01,242</h3>
+                                    <p>Posts published</p>
+                                </li>
+                                <li>
+                                    <div class="fact-icon"><i class="icon ion-checkmark-round"></i></div>
+                                    <h3 class="text-white">41,242</h3>
+                                    <p>People online</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Live Feed Section
+                ================================================= -->
+                <section id="live-feed">
+                    <div class="container wrapper">
+                        <h1 class="section-title slideDown">live feed</h1>
+                        <ul class="online-users list-inline slideUp">
+                            <li><a href="#" title="Alexis Clark"><img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+                            <li><a href="#" title="James Carter"><img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+                            <li><a href="#" title="Robert Cook"><img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+                            <li><a href="#" title="Richard Bell"><img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+                            <li><a href="#" title="Anna Young"><img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+                            <li><a href="#" title="Julia Cox"><img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+                        </ul>
+                        <h2 class="sub-title">see what’s happening now</h2>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 col-md-offset-2">
+                                <div class="feed-item">
+                                    <img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
+                                    <div class="live-activity">
+                                        <p><a href="#" class="profile-link">Sarah</a> just posted a photo from Moscow</p>
+                                        <p class="text-muted">20 Secs ago</p>
+                                    </div>
+                                </div>
+                                <div class="feed-item">
+                                    <img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
+                                    <div class="live-activity">
+                                        <p><a href="#" class="profile-link">John</a> Published a post from Sydney</p>
+                                        <p class="text-muted">1 min ago</p>
+                                    </div>
+                                </div>
+                                <div class="feed-item">
+                                    <img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
+                                    <div class="live-activity">
+                                        <p><a href="#" class="profile-link">Julia</a> Updated her status from London</p>
+                                        <p class="text-muted">5 mins ago</p>
+                                    </div>
+                                </div>
+                                <div class="feed-item">
+                                    <img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
+                                    <div class="live-activity">
+                                        <p><a href="#" class="profile-link">Sophia</a> Share a photo from Virginia</p>
+                                        <p class="text-muted">10 mins ago</p>
+                                    </div>
+                                </div>
+                                <div class="feed-item">
+                                    <img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
+                                    <div class="live-activity">
+                                        <p><a href="#" class="profile-link">Linda</a> just posted a photo from Toronto</p>
+                                        <p class="text-muted">20 mins ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="feed-item">
+                                    <img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
+                                    <div class="live-activity">
+                                        <p><a href="#" class="profile-link">Nora</a> Shared an article from Ohio</p>
+                                        <p class="text-muted">22 mins ago</p>
+                                    </div>
+                                </div>
+                                <div class="feed-item">
+                                    <img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
+                                    <div class="live-activity">
+                                        <p><a href="#" class="profile-link">Addison</a> Created a poll from Barcelona</p>
+                                        <p class="text-muted">23 mins ago</p>
+                                    </div>
+                                </div>
+                                <div class="feed-item">
+                                    <img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
+                                    <div class="live-activity">
+                                        <p><a href="#" class="profile-link">Diana</a> Posted a video from Captown</p>
+                                        <p class="text-muted">27 mins ago</p>
+                                    </div>
+                                </div>
+                                <div class="feed-item">
+                                    <img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
+                                    <div class="live-activity">
+                                        <p><a href="#" class="profile-link">Sarah</a> Shared friend's post from Moscow</p>
+                                        <p class="text-muted">30 mins ago</p>
+                                    </div>
+                                </div>
+                                <div class="feed-item">
+                                    <img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
+                                    <div class="live-activity">
+                                        <p><a href="#" class="profile-link">Emma</a> Started a new job at Torronto</p>
+                                        <p class="text-muted">33 mins ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
+
+
+

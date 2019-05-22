@@ -1,0 +1,10 @@
+{% for flash_message in app.session.flashing.get('success') %}
+<h4>{{ 'contact.success.timer'|trans }} <b></b> {{ 'contact.success.unity'|trans }}</h4>
+<h5>{{ 'contact.success.head'|trans }} </h5>
+{% endfor %}
+
+
+{% for flash_message in app.session.flashing.get('error') %}
+    <h4>{{ 'contact.success.timer'|trans }} <b></b> {{ 'contact.success.unity'|trans }}</h4>
+    <h5>{{ 'contact.success.head'|trans }} </h5>
+{% endfor %}

@@ -29,7 +29,7 @@ class ParticipationConcours
      *
      * @ORM\Column(name="note", type="integer")
      */
-    private $note;
+    private $note=0;
     /**
      * @ORM\ManyToOne(targetEntity="PiDev\GestionUser\FosBundle\Entity\User")
      * @ORM\JoinColumn(name="userid",referencedColumnName="id")
@@ -40,6 +40,11 @@ class ParticipationConcours
      * @ORM\JoinColumn(referencedColumnName="idconcours")
      */
     private $concours;
+    /**
+     * @ORM\ManyToOne(targetEntity="PiDev\GestionPublication\PublicationBundle\Entity\Publication")
+     * @ORM\JoinColumn(referencedColumnName="id")
+     */
+    private $publication;
 
 
     /**
@@ -107,5 +112,22 @@ class ParticipationConcours
     {
         $this->concours = $concours;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPublication()
+    {
+        return $this->publication;
+    }
+
+    /**
+     * @param mixed $publication
+     */
+    public function setPublication($publication)
+    {
+        $this->publication = $publication;
+    }
+
 }
 

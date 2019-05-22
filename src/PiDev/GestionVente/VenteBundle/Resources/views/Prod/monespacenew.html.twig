@@ -11,7 +11,7 @@
                 <div class="">
                     <a class="dropdown-item" href="{{ path('gestion_vente_Afficher_produit') }} "> <span class="glyphicon glyphicon-eye-open"></span>Consulter  les Produits</a>
                     <br>
-                    <a id="ajt" class="dropdown-item" href="{{ path ("gestion_vente_Ajouter_produit1") }}"> <span class="glyphicon glyphicon-plus"></span>Ajouter un Produit</a>
+                    <a id="ajt" class="dropdown-item" href="{{ path ("gestion_vente_Afficher_produit") }}"> <span class="glyphicon glyphicon-plus"></span>Ajouter un Produit</a>
 
                     {{ form( Form ) }}
 
@@ -73,20 +73,20 @@
                         <div class="col-lg-4 col-md-6 mb-4">
                             <div class="card h-100">
 
-                                <a href="#">    <img src="{{ asset('images/') }}{{ valeur.nomimage }}" style="width: 300px;height: 150px"></a>
+                                  <img src="{{ asset('images/') }}{{ valeur.nomimage }}" style="width: 300px;height: 150px"></a>
 
                                 <div class="card-body">
                                     <h4 class="card-title">
-                                        {{ valeur.nomproduit }}
+                                        <a href="{{ path('gestion_vente_espace_produit',{'idproduit':valeur.idproduit}) }}">     {{ valeur.nomproduit }}</a>
                                     </h4>
                                     <h5>{{ valeur.Prix }}TND</h5>
                                     <p class="card-text">{{ valeur.descriptionproduit }}.</p>
-                                    <a href="{{ path('gestion_vente_Supprimer_produit',{'id':valeur.idproduit})   }}" >Annuler</a>
+                                    <a href="{{ path('gestion_vente_Supprimer_produit',{'idproduit':valeur.idproduit})   }}" >Annuler</a>
                                 </div>
                                 <div class="card-footer">
                                     <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                                 </div>
-                                <div><SPAN class="glyphicon glyphicon-thumbs-up BLUE"><a href="{{ path('gestion_vente_Ajouter_produit1',{'id':valeur.idproduit})   }}" >J'aime</a></SPAN> {{ valeur.nbrlikes}}</div>
+                                <div><SPAN class="glyphicon glyphicon-thumbs-up BLUE"><a href="{{ path('gestion_vente_Ajouter_produit1',{'idproduit ':valeur.idproduit})   }}" >J'aime</a></SPAN> {{ valeur.nbrlikes}}</div>
 
 
 

@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -22,10 +23,10 @@ class EvenementType extends AbstractType
     {
         $builder->add('nomevenement',TextType::class)
 
-            ->add('datedebut', DateType::class)
-            ->add('datefin',DateType::class)
-            ->add('descriptionevenement',TextType::class)
-            ->add('nbrparticipants',TextType::class)
+            ->add('datedebut', DateTimeType::class)
+            ->add('datefin',DateTimeType::class)
+            ->add('descriptionevenement',TextareaType::class)
+
             ->add('payment',ChoiceType::class , array(
                 'choices'=>array(
                     'payer' => 'payer',

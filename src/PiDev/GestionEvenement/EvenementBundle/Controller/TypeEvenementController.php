@@ -9,6 +9,7 @@
 namespace PiDev\GestionEvenement\EvenementBundle\Controller;
 
 
+use PiDev\GestionEvenement\EvenementBundle\Entity\Notification;
 use PiDev\GestionEvenement\EvenementBundle\Entity\TypeEvenement;
 use PiDev\GestionEvenement\EvenementBundle\Form\EvenementType;
 use PiDev\GestionEvenement\EvenementBundle\Form\TypeEvenementType;
@@ -26,10 +27,13 @@ class TypeEvenementController extends Controller
 
         if($form->isSubmitted() && $form->isValid())
         {
+
             // echo 'suit au clic ';
             $em = $this->getDoctrine()->getManager();
             $em->persist($Event);
             $em->flush();
+
+
           return  $this->redirectToRoute('pi_dev_gestion_evenement_AfficherType');
         }
         return $this->render( '@PiDevGestionEvenementEvenement/Event/ajouterType.html.twig',
@@ -38,6 +42,51 @@ class TypeEvenementController extends Controller
             ));
     }
 
+    public function modifierType1EventAction(Request $request)
+    {
+        $id = $request->get('idtype');
+        $em = $this->getDoctrine()->getManager();
+        $Event = $em->getRepository('PiDevGestionEvenementEvenementBundle:TypeEvenement')
+            ->find($id);
+        $form = $this->createForm(TypeEvenementType::class, $Event);
+        $form->handleRequest($request);
+
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            // echo 'suit au clic ';
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($Event);
+            $em->flush();
+
+
+            return $this->redirectToRoute('pi_dev_gestion_evenement_AfficherType');
+        }
+        return $this->render('@PiDevGestionEvenementEvenement/Event/modifiertype.html.twig',
+            array(
+                "Form" => $form->createView()
+            ));
+
+    }
+public function modifierTypeEventAction(Request $request){
+  $id=$request->get('idtype');
+  $em=$this->getDoctrine()->getManager();
+  $Event=$em->getRepository('PiDevGestionEvenementEvenementBundle:TypeEvenement')
+      ->find($id);
+  $form=$this->createForm(TypeEvenementType::class,$Event);
+  $form->handleRequest($request);
+  if($form->isSubmitted() && $form->isValid()){
+      $em=$this->getDoctrine()->getManager();
+      $em->persist($Event);
+      $em->flush();
+      return $this->redirectToRoute('pi_dev_gestion_evenement_AfficherType');
+
+  }
+    return $this->render('@PiDevGestionEvenementEvenement/Event/modifiertype.html.twig',
+        array(
+            "Form" => $form->createView()
+        ));
+}
     public function AfficherTypeEventAction()
     {
         $em= $this->getDoctrine()->getManager();

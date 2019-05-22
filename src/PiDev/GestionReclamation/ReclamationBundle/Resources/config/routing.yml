@@ -5,14 +5,23 @@ ajoutreclamation:
     path:     /ajoutreclamation
     defaults: { _controller: PiDevGestionReclamationReclamationBundle:Reclamation:ajout }
 affichereclamation:
-    path:     /affichereclamation
-    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Reclamation:affiche }
+    path:     /afficheAdminreclamation
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Reclamation:afficheAdmin }
+affichemembrereclamation:
+    path:     /affichemembrereclamation
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Reclamation:affichemembre }
 deletereclamation:
     path:     /deletereclamation
     defaults: { _controller: PiDevGestionReclamationReclamationBundle:Reclamation:delete }
 updatereclamation:
     path:     /updatereclamation
-    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Reclamation:update }
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Reclamation:updatereclamation }
+recherchereclamation:
+    path:     /recherchereclamation
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Reclamation:recherchereclamation }
+recherchecategoriereclamation:
+    path:     /recherchecategoriereclamation
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Reclamation:recherchecategoriereclamation }
 ajoutservice:
     path:     /ajoutservice
     defaults: { _controller: PiDevGestionReclamationReclamationBundle:Service:ajout }
@@ -37,3 +46,22 @@ deletefeedback:
 updatefeedback:
     path:     /updatefeedback
     defaults: { _controller: PiDevGestionReclamationReclamationBundle:Feedback:update }
+
+traiterreclamation:
+    path:     /traiterreclama
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Reclamation:traiterreclamation }
+
+ajoute1Action:
+    path:     /ajoute1Action1
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Feedback:ajoute1 }
+ajoute2Action:
+    path:     /ajoute2
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Feedback:ajoute2 }
+
+ajoute3Action:
+    path:     /ajoute3
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Feedback:ajoute3 }
+
+searchAction:
+    path:     /search
+    defaults: { _controller: PiDevGestionReclamationReclamationBundle:Feedback:search }

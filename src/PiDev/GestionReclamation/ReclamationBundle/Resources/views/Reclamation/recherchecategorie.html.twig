@@ -1,0 +1,20 @@
+<h1>Rechercher DQL Reclamation par categorie</h1>
+{{ form(Form) }}
+
+<h3>Liste des reclamations</h3>
+<table border="2">
+    <th>descriptionreclamation</th>
+    <th>titrereclamation</th>
+    <th>datereclam</th>
+    <th>Categorie</th>
+
+    {% for rec in recs %}
+        <tr>
+            <td>{{ rec.descriptionreclam }}</td>
+            <td>{{ rec.titrereclam }}</td>
+            <td>{{ rec.datereclam | date('y-m-d') }}</td>
+            <td>{{ rec.categorie.nomcategorie }}</td>
+
+        </tr>
+    {% endfor %}
+</table>

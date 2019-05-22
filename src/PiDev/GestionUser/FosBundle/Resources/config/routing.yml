@@ -20,3 +20,12 @@ admin_coord:
 role_coord:
     path:     /
     defaults: { _controller: PiDevGestionUserFosBundle:User:Role }
+admin_coord_vente:
+    path:     /admin/dash/vente
+    defaults: { _controller: PiDevGestionUserFosBundle:User:Afficheradmin }
+admin_coord_sup_vente:
+    path:     /admin/dash/vente/supp/
+    defaults: { _controller: PiDevGestionUserFosBundle:User:SupprimerProduit }
+admin_coord_Accept_vente:
+    path:     /admin/dash/vente/acpt
+    defaults: { _controller: PiDevGestionUserFosBundle:User:Accepter }

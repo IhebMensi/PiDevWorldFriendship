@@ -22,9 +22,9 @@ class Feedback
     private $idfeedback;
 
     /**
-     * @var int
+     * @var float
      *
-     * @ORM\Column(name="note", type="integer")
+     * @ORM\Column(name="note", type="float",precision=10, scale=0)
      */
     private $note;
     /**
@@ -32,11 +32,7 @@ class Feedback
      * @ORM\JoinColumn(referencedColumnName="id")
      */
     private $user;
-    /**
-     * @ORM\ManyToOne(targetEntity="Service")
-     * @ORM\JoinColumn(referencedColumnName="idservice")
-     */
-    private $service;
+
 
     /**
      * @var string

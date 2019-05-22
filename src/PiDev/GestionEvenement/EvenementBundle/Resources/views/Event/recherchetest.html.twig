@@ -1,0 +1,9 @@
+<h3>Recherche une publicite selon categorie</h3>
+{{ form(Form) }}
+{% for event in events %}
+    <fieldset style="width: 30%">
+        <legend>Publicite n°{{ event.idevenement }}</legend>
+        <b>Nompublicite :</b> {{ event.nomevenement }} <br>
+        <b>Contenupublicte:</b> {{ event.pays }} <br>
+    </fieldset>
+{% endfor %}

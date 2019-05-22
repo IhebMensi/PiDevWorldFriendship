@@ -1,3 +1,27 @@
+{% for valeur in EVE %}
+
+
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+
+            <img src="{{ asset('images/') }}{{ valeur.nomimage }}" style="width: 300px;height: 150px">
+
+            <div class="card-body">
+                <h4 class="card-title">
+                    <a href="#">{{ valeur.nomproduit }}</a>
+                </h4>
+                <h5>{{ valeur.Prix }}TND</h5>
+                <p class="card-text">{{ valeur.descriptionproduit }}.</p>
+                <a href="{{ path('gestion_vente_supprimer_produit',{'id':valeur.id})   }}" >Annuler</a>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+            </div>
+        </div>
+    </div>
+
+
+{% endfor %}
 {% extends "base.html.twig" %}
 {% block Affichervente %}
 

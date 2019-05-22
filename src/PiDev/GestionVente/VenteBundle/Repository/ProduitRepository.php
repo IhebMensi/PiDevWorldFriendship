@@ -1,6 +1,7 @@
 <?php
 
 namespace PiDev\GestionVente\VenteBundle\Repository;
+use Doctrine\ORM\EntityRepository;
 
 /**
  * ProduitRepository
@@ -10,4 +11,72 @@ namespace PiDev\GestionVente\VenteBundle\Repository;
  */
 class ProduitRepository extends \Doctrine\ORM\EntityRepository
 {
-}
+    public function findNewDateProduit(){
+        $query = $this->getEntityManager()
+            ->createQuery("SELECT p FROM PiDevGestionVenteVenteBundle:Produit p ORDER BY p.datemisevente DESC "  );
+        return $query->getResult();
+
+    }
+    public function findByPrix($prix)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery("SELECT i FROM PiDevGestionVenteVenteBundle:Produit i WHERE i.prix<=:prix "  )
+        ->setParameter('prix',$prix);
+        return $query->getResult();
+    }
+
+    public function findProduit($pays,$categorie)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery("SELECT p FROM PiDevGestionVenteVenteBundle:Produit p WHERE p.pays =:pays AND p.categorie =:categorie ")
+            ->setParameter('pays', $pays)->setParameter('categorie', $categorie);
+
+        return $query->getResult();
+
+    }
+    public function findProduitt($pays,$categorie)
+    {
+        $query=$this->getEntityManager()
+            ->createQuery("SELECT p FROM PiDevGestionVenteVenteBundle:Produit p where p.categorie =:categorie AND p.pays =:pays" )
+            ->setParameter('categorie',$categorie)
+        ->setParameter('pays',$pays);
+        return $query->getResult();
+    }
+
+    public function findByEtat()
+    {
+        $query=$this->getEntityManager()
+            ->createQuery("SELECT p FROM PiDevGestionVenteVenteBundle:Produit p where p.etat =:etat" )
+            ->setParameter('etat','oui');
+        return $query->getResult();
+    }
+
+    public function findByNom($p){
+
+        $query=$this->getEntityManager()->createQuery("SELECT m from PiDevGestionVenteVenteBundle:Produit m where m.nomproduit like :x")
+            ->setParameter('x','%'.$p.'%');
+        return $query->getResult();
+
+    }
+    public function findRangeProduitt($prix)
+    {
+        $query=$this->getEntityManager()
+            ->createQuery("SELECT p FROM PiDevGestionVenteVenteBundle:Produit p where p.prix =:prix " )
+            ->setParameter('prix',$prix);
+        return $query->getResult();
+    }
+
+
+    public function findProdfav($user)
+    {
+        $query=$this->getEntityManager()
+            ->createQuery("SELECT p FROM PiDevGestionVenteVenteBundle:Produit p INNER JOIN PiDevGestionVenteVenteBundle:FavorisProduit f
+             where p.user=f.user and p.user=:user and p.idproduit=f.prod ")
+           ->setParameter('user',$user);
+
+        return $query->getResult();
+    }
+
+
+
+    }

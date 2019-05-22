@@ -10,11 +10,14 @@ imports:
     - { resource: "@PiDevGestionVenteVenteBundle/Resources/config/services.yml" }
     - { resource: "@PiDevGestionConcoursConcoursBundle/Resources/config/services.yml" }
     - { resource: "@PiDevGestionCategorieCategorieBundle/Resources/config/services.yml" }
+    - { resource: "@EspritApiBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
+    categories_directory: '%kernel.project_dir%/web/uploads/categories'
+    event_directory: '%kernel.project_dir%/web/uploads/events'
 
 framework:
     #esi: ~
@@ -45,6 +48,8 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    form_themes:
+        - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -89,3 +94,30 @@ fos_user:
     from_email:
         address: "iheb.mensi@esprit.tn"
         sender_name: "987456321"
+
+# NotificationsBundle configuration
+notifications:
+    app_id:     721280
+    app_key:    fdc22d7038a7472c1c0e
+    app_secret: 4807af5caf73b9bf8783
+    cluster:    eu
+knp_paginator:
+    page_range:                 5          # default page range used in pagination control
+    default_options:
+        page_name:              page       # page query parameter name
+        sort_field_name:        sort       # sort field query parameter name
+        sort_direction_name:    direction  # sort direction query parameter name
+        distinct:               true       # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    template:
+        pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig     # sliding pagination controls template
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig
+fos_message:
+    db_driver: orm
+    thread_class: PiDev\GestionUser\FosBundle\Entity\Thread
+    message_class: PiDev\GestionUser\FosBundle\Entity\Message
+
+cmen_google_charts:
+  version: "current"
+  language: "fr"
+
+

@@ -26,6 +26,14 @@ class AppKernel extends Kernel
             new PiDev\GestionVente\VenteBundle\PiDevGestionVenteVenteBundle(),
             new PiDev\GestionConcours\ConcoursBundle\PiDevGestionConcoursConcoursBundle(),
             new PiDev\GestionCategorie\CategorieBundle\PiDevGestionCategorieCategorieBundle(),
+            new Toiba\FullCalendarBundle\FullCalendarBundle(),
+            new \SBC\NotificationsBundle\NotificationsBundle(),
+            new FOS\CKEditorBundle\FOSCKEditorBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new blackknight467\StarRatingBundle\StarRatingBundle(),
+            new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
+            new FOS\MessageBundle\FOSMessageBundle(),
+            new Esprit\ApiBundle\EspritApiBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -4,7 +4,6 @@ namespace PiDev\GestionVente\VenteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use PiDev\GestionUser\FosBundle\Entity;
-
 use FOS\UserBundle\Model\User as BaseUser;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -30,6 +29,11 @@ class Produit
      * @var string
      *
      * @ORM\Column(name="nomproduit", type="string", length=255)
+     *
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 8
+     * )
      */
     private $nomproduit;
 
@@ -37,6 +41,9 @@ class Produit
      * @var \DateTime
      *
      * @ORM\Column(name="datemisevente", type="date")
+     *
+     * @Assert\Type("DateTime")
+     *@Assert\GreaterThan("today")
      */
     private $datemisevente;
 
@@ -56,7 +63,12 @@ class Produit
      * @ORM\JoinColumn(name="userid",referencedColumnName="id")
      */
     private $user;
-
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="AcptProd", type="string",length=255)
+     */
+    private $AcptProd;
     /**
      * @var string
      *
@@ -69,6 +81,18 @@ class Produit
      * @ORM\Column(name="nbrlikes", type="integer")
      */
     private $nbrlikes=0;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nbrdislikes", type="integer")
+     */
+    private $nbrdislikes=0;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etat", type="string", length=255)
+     */
+    private $etat='non';
     /**
      * @var string
      *
@@ -226,7 +250,7 @@ class Produit
     {
         $this->categorie = $categorie;
     }
-    public function getWebPath()
+   /* public function getWebPath()
     {
         return null===$this->image ? null : $this->getUploadDir.'/'.$this->nomimage;
     }
@@ -241,12 +265,19 @@ class Produit
         return 'images';
     }
 
-    public function  uploadProfilePicture()
+    public function uploadProfilePicture()
     {
-        $this->file->move($this->getUploadRootDir(),$this->file->getClientOriginalName());
-        $this->nomimage=$this->file->getClientOriginalName();
-        $this->file=null;
-    }
+        if (null === $this->file) {
+            return;
+        }
+        if(!$this->idproduit){
+            $this->file->move($this->getUploadRootDir(), $this->file->getClientOriginalName());
+        }else{
+
+            $this->file->move($this->getUploadRootDir(), $this->file->getClientOriginalName());
+        }
+        $this->setNomimage($this->file->getClientOriginalName());
+    }*/
 
     /**
      * @return int
@@ -295,6 +326,90 @@ class Produit
     {
         $this->file = $file;
     }
+
+    /**
+     * @return int
+     */
+    public function getNbrdislikes()
+    {
+        return $this->nbrdislikes;
+    }
+
+    /**
+     * @param int $nbrdislikes
+     */
+    public function setNbrdislikes($nbrdislikes)
+    {
+        $this->nbrdislikes = $nbrdislikes;
+    }
+/*
+    /**
+     * @return mixed
+     */
+ /*   public function getIdcom()
+    {
+        return $this->idcom;
+    }
+
+    /**
+     * @param mixed $idcom
+     */
+ /*   public function setIdcom($idcom)
+    {
+        $this->idcom = $idcom;
+    }*/
+
+    /**
+     * @return string
+     */
+  /**  public function getPays()
+    {
+        return $this->pays;
+    }
+
+    /**
+     * @param string $pays
+     */
+   /** public function setPays($pays)
+    {
+        $this->pays = $pays;
+    }*/
+
+    /**
+     * @return string
+     */
+    public function getAcptProd()
+    {
+        return $this->AcptProd;
+    }
+
+    /**
+     * @param string $AcptProd
+     */
+    public function setAcptProd($AcptProd)
+    {
+        $this->AcptProd = $AcptProd;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @param string $etat
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+    }
+
+
+
+
 
 
 }

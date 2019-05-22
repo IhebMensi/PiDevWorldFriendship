@@ -23,7 +23,7 @@ class rechercheLieuForm extends AbstractType
         $builder
             ->add('pays',TextType::class,['required'=>false])
             ->add('region',TextType::class,['required'=>false])
-            ->add('adresse',TextType::class,['required'=>false])
+
             ->add('categorie',EntityType::class,array(
                 'class'=>'PiDevGestionCategorieCategorieBundle:Categorie',
 

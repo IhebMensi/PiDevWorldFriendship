@@ -1,3 +1,25 @@
 pi_dev_gestion_publication_publication_homepage:
     path:     /
     defaults: { _controller: PiDevGestionPublicationPublicationBundle:Default:index }
+pi_dev:
+    path:     /AjouterPub
+    defaults: { _controller: PiDevGestionPublicationPublicationBundle:Publication:Ajouter }
+pi_dev_SupprimerPub:
+    path:     /SupprimerPub
+    defaults: { _controller: PiDevGestionPublicationPublicationBundle:Publication:supprimerPub }
+
+likepublicite1:
+    path:     /likepublicite
+    defaults: { _controller: PiDevGestionPublicationPublicationBundle:Publication:like }
+
+dislikepublicite:
+    path:     /dislikepublicite
+    defaults: { _controller: PiDevGestionPublicationPublicationBundle:Publication:dislike }
+
+listPublication:
+    path:     /listPublication
+    defaults: { _controller: PiDevGestionPublicationPublicationBundle:Publication:listPublication }
+
+pi_dev_SignalerPub:
+    path: /pi_dev_SignalerPub
+    defaults: { _controller: PiDevGestionPublicationPublicationBundle:Publication:signalerPublication }

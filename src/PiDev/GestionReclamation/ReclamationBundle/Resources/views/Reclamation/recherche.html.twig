@@ -1,0 +1,24 @@
+<h3>Recherche une reclamation</h3>
+<form method="post">
+    <label>Titre Reclamation:</label>
+    <input type="text" name="Titrereclam"><br>
+    <br>
+    <input type="submit" value="Rechercher">
+
+</form>
+<h3>Liste des reclamations</h3>
+<table border="2">
+    <th>descriptionreclamation</th>
+    <th>titrereclamation</th>
+    <th>datereclam</th>
+    <th>Categorie</th>
+    {% for rec in recs %}
+        <tr>
+            <td>{{ rec.descriptionreclam }}</td>
+            <td>{{ rec.titrereclam }}</td>
+            <td>{{ rec.datereclam | date('y-m-d') }}</td>
+            <td>{{ rec.categorie.nomcategorie }}</td>
+
+        </tr>
+    {% endfor %}
+</table>
